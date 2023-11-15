@@ -9,7 +9,7 @@ const Reviews = () => {
         This is what clients have been saying after using the great service we
         do for clients
       </p>
-      <div className="grid grid-cols-3 gap-5 mt-5">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5 mt-5">
         <div className="space-y-10 border-2 p-10 rounded-lg">
           <img
             src="https://i.ibb.co/S7bmTTJ/307abac1c2751b920c46a4b4fd0910d8.png"
