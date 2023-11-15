@@ -20,20 +20,38 @@ const Navbar = () => {
     };
   }, []);
 
+  const [currentHash, setCurrentHash] = useState(window.location.hash);
+
+  useEffect(() => {
+    setCurrentHash(window.location.hash);
+  }, []);
+
   const links = (
     <>
       <li>
-        <HashLink smooth to="/#">
+        <HashLink
+          smooth
+          to="/#home"
+          className={`hover:border-b-2 ${currentHash === '#about' ? ' border-b-2 border-red-500' : 'border-transparent'}`}
+        >
           Home
         </HashLink>
       </li>
       <li>
-        <HashLink smooth to="/#service">
+        <HashLink
+          smooth
+          to="/#services"
+          className={`hover:border-b-2 ${currentHash === '#about' ? ' border-b-2 border-red-500' : 'border-transparent'}`}
+        >
           Services
         </HashLink>
       </li>
       <li>
-        <HashLink smooth to="/#about">
+        <HashLink
+          smooth
+          to="/#about"
+          className={`hover:border-b-2 ${currentHash === '#about' ? 'border-red-500' : 'border-transparent'}`}
+        >
           About Us
         </HashLink>
       </li>
@@ -48,7 +66,9 @@ const Navbar = () => {
       }
     >
       <div className="lg:mx-auto md:w-[80%]">
-        <div className={"flex items-center lg:py-4 fixed top-0 md:w-[80%] mx-auto"}>
+        <div
+          className={"flex items-center lg:py-4 fixed top-0 md:w-[80%] mx-auto"}
+        >
           <div className="navbar-start flex items-center">
             <div className="dropdown">
               <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -64,13 +84,13 @@ const Navbar = () => {
               >
                 {links}
                 <li>
-                  <Link className=" bg-[#69BB48] text-white">
-                    Contact us
-                  </Link>
+                  <Link className=" bg-[#69BB48] text-white">Contact us</Link>
                 </li>
               </ul>
             </div>
-            <Link className="md:text-3xl text-lime-500 font-bold inline-block">Cleaners</Link>
+            <Link className="md:text-3xl text-lime-500 font-bold inline-block">
+              Cleaners
+            </Link>
           </div>
           <div
             className={`navbar-center hidden lg:flex ${
@@ -80,7 +100,9 @@ const Navbar = () => {
             <ul className="menu menu-horizontal">{links}</ul>
           </div>
           <div className="navbar-end hidden lg:flex">
-            <Link className="px-4 py-2 rounded-lg bg-primary-c text-white">Contact us</Link>
+            <Link className="px-4 py-2 rounded-lg bg-primary-c text-white">
+              Contact us
+            </Link>
           </div>
         </div>
       </div>

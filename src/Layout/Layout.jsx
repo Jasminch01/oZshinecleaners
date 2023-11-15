@@ -3,7 +3,7 @@ import Navbar from "../Components/Navbar/Navbar";
 
 const Layout = () => {
   return (
-    <div className="bg-secendary-c font-kdam">
+    <div className="font-kdam">
       <Navbar></Navbar> 
       <div className="">
         <Outlet></Outlet>

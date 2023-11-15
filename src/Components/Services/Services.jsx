@@ -4,7 +4,7 @@ const Services = () => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <div className="my-20">
+    <div className="my-20" id="services">
       <p className="text-center font-bold text-3xl mb-6">
         Always Provide The Best Service
       </p>
