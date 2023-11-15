@@ -43,13 +43,13 @@ const Navbar = () => {
     <div
       className={
         scrolling
-          ? "navbar md:p-10 bg-secendary-c fixed top-0  w-full mx-auto"
-          : "md:p-10 fixed top-0 w-full mx-auto navbar transition duration-300 ease-in-out"
+          ? "flex items-center py-7 lg:py-10 z-30 bg-secendary-c fixed top-0  w-full mx-auto"
+          : " fixed top-0 w-full mx-auto flex items-center transition duration-300 ease-in-out"
       }
     >
       <div className="lg:mx-auto md:w-[80%]">
-        <div className={"navbar lg:py-4 fixed top-0 md:w-[80%] mx-auto"}>
-          <div className="navbar-start">
+        <div className={"flex items-center lg:py-4 fixed top-0 md:w-[80%] mx-auto"}>
+          <div className="navbar-start flex items-center">
             <div className="dropdown">
               <label tabIndex={0} className="btn btn-ghost lg:hidden">
                 <HiMenu
@@ -70,7 +70,7 @@ const Navbar = () => {
                 </li>
               </ul>
             </div>
-            <a className="md:text-3xl text-lime-500 font-bold">Cleaners</a>
+            <Link className="md:text-3xl text-lime-500 font-bold inline-block">Cleaners</Link>
           </div>
           <div
             className={`navbar-center hidden lg:flex ${
@@ -80,7 +80,7 @@ const Navbar = () => {
             <ul className="menu menu-horizontal">{links}</ul>
           </div>
           <div className="navbar-end hidden lg:flex">
-            <Link className="px-3 py-2 rounded-lg bg-primary-c text-white">Contact us</Link>
+            <Link className="px-4 py-2 rounded-lg bg-primary-c text-white">Contact us</Link>
           </div>
         </div>
       </div>
