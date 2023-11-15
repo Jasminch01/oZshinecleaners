@@ -105,9 +105,9 @@ const Form = () => {
   };
 
   return (
-    <div className="relative z-20">
+    <div className="relative z-20 mb-20">
       <div className="p-10 bg-white rounded-lg mb-20 -mt-20 z-20 shadow-lg">
-        <form action="" onSubmit={handleSubmit}>
+        <form action="" className="" onSubmit={handleSubmit}>
           <p className="text-center font-bold text-3xl mb-6">
             Get a Free Quote
           </p>
