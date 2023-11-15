@@ -61,8 +61,8 @@ const Navbar = () => {
     <div
       className={
         scrolling
-          ? "flex items-center py-7 lg:py-10 z-30 bg-secendary-c fixed top-0  w-full mx-auto"
-          : " fixed top-0 w-full mx-auto flex items-center transition duration-300 ease-in-out"
+          ? "flex items-center py-7 lg:py-10 z-20 bg-secendary-c fixed top-0  w-full mx-auto"
+          : " fixed top-0 w-full mx-auto flex items-center z-20 transition duration-300 ease-in-out"
       }
     >
       <div className="lg:mx-auto md:w-[80%]">

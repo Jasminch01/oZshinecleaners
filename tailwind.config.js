@@ -11,7 +11,7 @@ export default {
         "secendary-c" : '#EFF5F9'
       },
       fontFamily : {
-        kdam: "'Kdam Thmor Pro', sans-serif",
+        "Roboto": "'Roboto', Noto Rashi Hebrew",
       }
     },
   },

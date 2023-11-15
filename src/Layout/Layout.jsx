@@ -3,7 +3,7 @@ import Navbar from "../Components/Navbar/Navbar";
 
 const Layout = () => {
   return (
-    <div className="font-kdam">
+    <div className="font-Roboto">
       <Navbar></Navbar> 
       <div className="">
         <Outlet></Outlet>

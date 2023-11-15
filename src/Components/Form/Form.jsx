@@ -81,7 +81,6 @@ const Form = () => {
     const serviceRequried = form.serviceRequried.value;
     const bedroom = form.bedroom.value;
     const bathroom = form.bathroom.value;
-    const postCode = form.postCode.value;
     const quoteInfo = {
       name,
       email,
@@ -89,14 +88,13 @@ const Form = () => {
       serviceRequried,
       bedroom,
       bathroom,
-      postCode,
     };
-    console.log(quoteInfo);
 
     axios
       .post(`https://shine-home-server.vercel.app/quoteInfo`, quoteInfo)
       .then((res) => {
-        if (res.data.insertedId) {
+        console.log(res.data)
+        if (res.data.acknowledged) {
           toast.success("Successfully submited request");
         }
       });
@@ -108,14 +106,14 @@ const Form = () => {
     <div className="relative z-20 mb-20">
       <div className="p-10 bg-white rounded-lg mb-20 -mt-20 z-20 shadow-lg">
         <form action="" className="" onSubmit={handleSubmit}>
-          <p className="text-center font-bold text-3xl mb-6">
+          <p className="text-center font-bold text-4xl mb-6">
             Get a Free Quote
           </p>
           <div className="grid md:grid-cols-2 grid-cols-1 gap-5">
             <div>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text flex justify-center items-center gap-1">
+                  <span className="label-text font-bold flex justify-center items-center gap-1">
                     Name <span className="text-red-500 text-[18px]">*</span>
                   </span>
                 </label>
@@ -124,14 +122,14 @@ const Form = () => {
                   type="text"
                   onChange={(e) => setName(e.target.value)}
                   onBlur={validateName}
-                  className="input rounded-lg input-bordered w-full"
+                  className="input bg-transparent focus:bg-transparent rounded-lg input-bordered w-full"
                   required
                 />
                 <span className="text-red-500 mt-2 text-xs">{nameError}</span>
               </div>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text font-lg flex justify-center items-center gap-1">
+                  <span className="label-text font-bold flex justify-center items-center gap-1">
                     Email Address{" "}
                     <span className="text-red-500 text-[18px]">*</span>
                   </span>
@@ -148,7 +146,7 @@ const Form = () => {
               </div>
               <div className="form-control">
                 <label className="label">
-                  <span className="label-text font-lg  flex justify-center items-center gap-1">
+                  <span className="label-text font-bold  flex justify-center items-center gap-1">
                     Phone Number{" "}
                     <span className="text-red-500 text-[18px] ">*</span>
                   </span>
@@ -167,7 +165,7 @@ const Form = () => {
             <div className="">
               <div>
                 <label className="label">
-                  <span className="label-text font-lg flex justify-center items-center gap-1">
+                  <span className="label-text font-bold flex justify-center items-center gap-1">
                     Service Requried
                   </span>
                 </label>
@@ -183,7 +181,7 @@ const Form = () => {
               </div>
               <div className="mt-2">
                 <label className="label">
-                  <span className="label-text font-lg  flex justify-center items-center gap-1">
+                  <span className="label-text font-bold  flex justify-center items-center gap-1">
                     Bedroom
                   </span>
                 </label>
@@ -200,7 +198,7 @@ const Form = () => {
               </div>
               <div className="mt-2">
                 <label className="label">
-                  <span className="label-text font-lg ">Bathroom</span>
+                  <span className="label-text font-bold ">Bathroom</span>
                 </label>
                 <select
                   name="bathroom"
@@ -257,7 +255,30 @@ const Form = () => {
             <TiStarFullOutline className="text-amber-500"></TiStarFullOutline>
             <TiStarFullOutline className="text-amber-500"></TiStarFullOutline>
           </div>
-          <Toaster></Toaster>
+          <Toaster
+        position="top-center"
+        reverseOrder={false}
+        gutter={8}
+        containerClassName="z-50" // Set the desired z-index using a Tailwind CSS class
+        toastOptions={{
+          // Define default options
+          className: '',
+          duration: 5000,
+          style: {
+            background: '#363636',
+            color: '#fff',
+          },
+
+          // Default options for specific types
+          success: {
+            duration: 3000,
+            theme: {
+              primary: 'green',
+              secondary: 'black',
+            },
+          },
+        }}
+      />
         </form>
       </div>
     </div>

@@ -2,10 +2,10 @@ import { TiStarFullOutline } from "react-icons/ti";
 const Reviews = () => {
   return (
     <div className="my-10">
-      <p className="text-center font-bold text-3xl mb-6">
+      <p className="text-center font-bold text-4xl ">
         What Our Client {"Say’s"}
       </p>
-      <p className="text-center text-sm">
+      <p className="text-center">
         This is what clients have been saying after using the great service we
         do for clients
       </p>
@@ -16,7 +16,7 @@ const Reviews = () => {
             alt=""
             className="w-10 bg-primary-c rounded-full"
           />
-          <p className="text-sm">
+          <p className="">
             Call the cleaners were great! Yeshi <br /> cleaned our place and did
             an awesome job. <br /> We had a bond clean
           </p>
@@ -44,7 +44,7 @@ const Reviews = () => {
             alt=""
             className="w-10 bg-primary-c rounded-full"
           />
-          <p className="text-sm">
+          <p className="">
             Call the cleaners were great! Yeshi <br /> cleaned our place and did
             an awesome job. <br /> We had a bond clean
           </p>
@@ -72,7 +72,7 @@ const Reviews = () => {
             alt=""
             className="w-10 bg-primary-c rounded-full"
           />
-          <p className="text-sm">
+          <p className="">
             Call the cleaners were great! Yeshi <br /> cleaned our place and did
             an awesome job. <br /> We had a bond clean
           </p>

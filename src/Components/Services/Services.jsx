@@ -5,10 +5,10 @@ const Services = () => {
 
   return (
     <div className="my-20" id="services">
-      <p className="text-center font-bold text-3xl mb-6">
+      <p className="text-center font-bold text-4xl">
         Always Provide The Best Service
       </p>
-      <p className="text-center text-sm">
+      <p className="text-center">
         We Consistently Deliver the Best Service for Your Cleaning Needs in
         Melbourne
       </p>
