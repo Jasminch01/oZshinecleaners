@@ -4,7 +4,7 @@ import toast, { Toaster } from "react-hot-toast";
 import { TiStarFullOutline } from "react-icons/ti";
 
 const Form = () => {
-  const [services, setServices] = useState([]);
+  const [services, setServices] = useState([{name:'End of Leash Cleaning', id:1}, {name:'Deep Cleaning', id:2}, {name:'Carpet Cleaning', id:3}]);
   const [roomes, setRooms] = useState([]);
 
   const [name, setName] = useState("");
@@ -54,15 +54,7 @@ const Form = () => {
       : ` w-full input input-bordered rounded-lg overflow-y-scroll`;
   };
 
-  //loaded services form server api
-  useEffect(() => {
-    axios
-      .get(`https://shine-home-server.vercel.app/services`)
-      .then((res) => setServices(res.data))
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
+  
 
   //loded roomesdata form server api
   useEffect(() => {
@@ -104,7 +96,7 @@ const Form = () => {
 
   return (
     <div className="relative z-20 mb-20">
-      <div className="p-10 bg-white rounded-lg mb-20 -mt-20 z-20 shadow-lg">
+      <div className="p-10 bg-white rounded-lg mb-20 -mt-20 z-20 shadow-lg max-w-4xl mx-auto">
         <form action="" className="" onSubmit={handleSubmit}>
           <p className="text-center font-bold text-4xl mb-6">
             Get a Free Quote
@@ -175,7 +167,7 @@ const Form = () => {
                   className={getInputClasses(!!nameError)}
                 >
                   {services.map((service) => (
-                    <option key={service._id}>{service.name}</option>
+                    <option key={service.id}>{service.name}</option>
                   ))}
                 </select>
               </div>
@@ -218,7 +210,7 @@ const Form = () => {
           <div className="text-center">
             <button
               type="submit"
-              className={`px-4 py-2 mt-5 uppercase ${
+              className={`px-8 py-2 font-semibold cursor-pointer hover:bg-lime-600 transition-all mt-8 uppercase ${
                 isSubmitDisabled ? `bg-lime-400` : "bg-primary-c"
               } bg-primary-c text-white rounded`}
               disabled={isSubmitDisabled}
@@ -226,35 +218,8 @@ const Form = () => {
               Submit
             </button>
           </div>
-          <div className="md:flex space-y-5 md:space-y-0 items-center justify-center gap-10 mt-5">
-            <div className="flex gap-1 items-center justify-center">
-              <img src="/verify.svg" alt="" />
-              <p>Trusted Cleaners</p>
-            </div>
-            <div className="">
-              <p className="text-center">5 Star Rated Service</p>
-              <div className="flex justify-center md:hidden">
-                <div className="flex items-center">
-                  <TiStarFullOutline className="text-amber-500"></TiStarFullOutline>
-                  <TiStarFullOutline className="text-amber-500"></TiStarFullOutline>
-                  <TiStarFullOutline className="text-amber-500"></TiStarFullOutline>
-                  <TiStarFullOutline className="text-amber-500"></TiStarFullOutline>
-                  <TiStarFullOutline className="text-amber-500"></TiStarFullOutline>
-                </div>
-              </div>
-            </div>
-            <div className="flex items-center gap-1 justify-center">
-              <img src="/verify.svg" alt="" />
-              <p>Full Satisfaction</p>
-            </div>
-          </div>
-          <div className="md:flex justify-center items-center hidden">
-            <TiStarFullOutline className="text-amber-500"></TiStarFullOutline>
-            <TiStarFullOutline className="text-amber-500"></TiStarFullOutline>
-            <TiStarFullOutline className="text-amber-500"></TiStarFullOutline>
-            <TiStarFullOutline className="text-amber-500"></TiStarFullOutline>
-            <TiStarFullOutline className="text-amber-500"></TiStarFullOutline>
-          </div>
+        
+        
        
         </form>
       </div>
