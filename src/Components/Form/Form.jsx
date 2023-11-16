@@ -228,7 +228,7 @@ const Form = () => {
           </div>
           <div className="md:flex space-y-5 md:space-y-0 items-center justify-center gap-10 mt-5">
             <div className="flex gap-1 items-center justify-center">
-              <img src="../../../public/verify.svg" alt="" />
+              <img src="/verify.svg" alt="" />
               <p>Trusted Cleaners</p>
             </div>
             <div className="">
@@ -244,7 +244,7 @@ const Form = () => {
               </div>
             </div>
             <div className="flex items-center gap-1 justify-center">
-              <img src="../../../public/verify.svg" alt="" />
+              <img src="/verify.svg" alt="" />
               <p>Full Satisfaction</p>
             </div>
           </div>
