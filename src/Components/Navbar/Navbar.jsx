@@ -32,7 +32,9 @@ const Navbar = () => {
         <HashLink
           smooth
           to="/#home"
-          className={`hover:border-b-2 ${currentHash === '#home' ? ' text-primary-c' : 'border-transparent'}`}
+          className={`hover:border-b-2 ${
+            currentHash === "#home" ? " text-primary-c" : "border-transparent"
+          }`}
         >
           Home
         </HashLink>
@@ -41,7 +43,11 @@ const Navbar = () => {
         <HashLink
           smooth
           to="/#services"
-          className={`hover:border-b-2 ${currentHash === '#services' ? ' text-primary-c' : 'border-transparent'}`}
+          className={`hover:border-b-2 ${
+            currentHash === "#services"
+              ? " text-primary-c"
+              : "border-transparent"
+          }`}
         >
           Services
         </HashLink>
@@ -50,7 +56,9 @@ const Navbar = () => {
         <HashLink
           smooth
           to="/#about"
-          className={`hover:border-b-2 ${currentHash === '#about' ? 'text-primary-c' : 'border-transparent'}`}
+          className={`hover:border-b-2 ${
+            currentHash === "#about" ? "text-primary-c" : "border-transparent"
+          }`}
         >
           About Us
         </HashLink>
@@ -88,16 +96,20 @@ const Navbar = () => {
                 </li>
               </ul>
             </div>
-            <Link className="md:text-3xl text-lime-500 font-bold inline-block">
+            <HashLink
+              smooth
+              to="/#home"
+              className="md:text-3xl text-lime-500 font-bold inline-block"
+            >
               Cleaners
-            </Link>
+            </HashLink>
           </div>
           <div
             className={`navbar-center hidden lg:flex ${
               scrolling ? `text-black` : ` text-white`
             }`}
           >
-            <ul className="menu-horizontal space-x-5">{links}</ul>
+            <ul className="menu-horizontal space-x-5 text-lg">{links}</ul>
           </div>
           <div className="navbar-end hidden lg:flex">
             <Link className="px-4 py-2 rounded-lg bg-primary-c text-white">

@@ -94,7 +94,7 @@ const Form = () => {
       .post(`https://shine-home-server.vercel.app/quoteInfo`, quoteInfo)
       .then((res) => {
         console.log(res.data)
-        if (res.data.acknowledged) {
+        if(res.data.acknowledged) {
           toast.success("Successfully submited request");
         }
       });
@@ -255,27 +255,7 @@ const Form = () => {
             <TiStarFullOutline className="text-amber-500"></TiStarFullOutline>
             <TiStarFullOutline className="text-amber-500"></TiStarFullOutline>
           </div>
-          <Toaster
-        position="top-center"
-        reverseOrder={false}
-        gutter={8}
-        containerClassName="z-50" 
-        toastOptions={{
-          className: '',
-          duration: 5000,
-          style: {
-            background: '#363636',
-            color: '#fff',
-          },
-          success: {
-            duration: 3000,
-            theme: {
-              primary: 'green',
-              secondary: 'black',
-            },
-          },
-        }}
-      />
+       
         </form>
       </div>
     </div>

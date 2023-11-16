@@ -1,3 +1,5 @@
+import { TiStarFullOutline } from "react-icons/ti";
+
 const Banner = () => {
   return (
     <div>
@@ -28,15 +30,46 @@ const Banner = () => {
 
         <div className="absolute z-0 inset-0 bg-black opacity-50"></div>
 
-        <div className="absolute z-0 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-center">
-          <h1 className="mb-5 text-6xl font-bold text-white">
-            Bringing Radiance to
+        <div className="absolute z-0 top-[45%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-center">
+          <h1 className="mb-5 text-7xl leading-[80px] font-bold text-white">
+            Bringing Radiance to <br /> Your Space
           </h1>
-          <h1 className="mb-5 text-5xl font-bold text-white">Your Space</h1>
-          <p className="mb-5 text-white">
-            Elevate Your Melbourne Space with Radiance{"Cleaning's"} Expertise
+         
+          <p className="mb-5 text-gray-200 text-lg font-medium font-Roboto">
+            Elevate Your Melbourne Space with Radiance {"Cleaning's"} Expertise
             and Care
           </p>
+          <button
+             
+              className={`px-6 py-3 mt-5 uppercase  bg-primary-c hover:bg-primary-c/80 transition-all text-white rounded-md font-semibold`}
+            >
+              Get a Free Quote
+            </button>
+
+            <div>
+            <div className="flex space-y-5 md:space-y-0 items-start justify-center gap-10 mt-10">
+            <div className="flex gap-1 items-center justify-center">
+              <img src="/verify.svg" alt="" />
+              <p>Trusted Cleaners</p>
+            </div>
+            <div className="">
+              <p className="text-center font-bold">5 Star Rated Service</p>
+              <div className="flex justify-center ">
+                <div className="flex items-center">
+                  <TiStarFullOutline className="text-amber-500"></TiStarFullOutline>
+                  <TiStarFullOutline className="text-amber-500"></TiStarFullOutline>
+                  <TiStarFullOutline className="text-amber-500"></TiStarFullOutline>
+                  <TiStarFullOutline className="text-amber-500"></TiStarFullOutline>
+                  <TiStarFullOutline className="text-amber-500"></TiStarFullOutline>
+                </div>
+              </div>
+            </div>
+            <div className="flex items-center gap-1 justify-center">
+              <img src="/verify.svg" alt="" />
+              <p>Full Satisfaction</p>
+            </div>
+          </div>
+            </div>
         </div>
       </div>
     </div>
