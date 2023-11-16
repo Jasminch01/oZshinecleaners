@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       backgroundImage: {
-        "banner-bg": "url('https://i.ibb.co/dW3ZDMH/Industries-bg.jpg')",
+        "banner-bg": "url('https://i.ibb.co/5jKsXYh/banner.jpg')",
       },
       colors : {
         "primary-c" : '#69BB48',

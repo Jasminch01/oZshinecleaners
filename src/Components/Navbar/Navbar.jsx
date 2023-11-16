@@ -32,7 +32,7 @@ const Navbar = () => {
         <HashLink
           smooth
           to="/#home"
-          className={`hover:border-b-2 ${currentHash === '#about' ? ' border-b-2 border-red-500' : 'border-transparent'}`}
+          className={`hover:border-b-2 ${currentHash === '#home' ? ' text-primary-c' : 'border-transparent'}`}
         >
           Home
         </HashLink>
@@ -41,7 +41,7 @@ const Navbar = () => {
         <HashLink
           smooth
           to="/#services"
-          className={`hover:border-b-2 ${currentHash === '#about' ? ' border-b-2 border-red-500' : 'border-transparent'}`}
+          className={`hover:border-b-2 ${currentHash === '#services' ? ' text-primary-c' : 'border-transparent'}`}
         >
           Services
         </HashLink>
@@ -50,7 +50,7 @@ const Navbar = () => {
         <HashLink
           smooth
           to="/#about"
-          className={`hover:border-b-2 ${currentHash === '#about' ? 'border-red-500' : 'border-transparent'}`}
+          className={`hover:border-b-2 ${currentHash === '#about' ? 'text-primary-c' : 'border-transparent'}`}
         >
           About Us
         </HashLink>
@@ -61,7 +61,7 @@ const Navbar = () => {
     <div
       className={
         scrolling
-          ? "flex items-center py-7 lg:py-10 z-20 bg-secendary-c fixed top-0  w-full mx-auto"
+          ? "flex items-center py-7 lg:py-10 z-30 bg-secendary-c fixed top-0  w-full mx-auto"
           : " fixed top-0 w-full mx-auto flex items-center z-20 transition duration-300 ease-in-out"
       }
     >
@@ -97,7 +97,7 @@ const Navbar = () => {
               scrolling ? `text-black` : ` text-white`
             }`}
           >
-            <ul className="menu menu-horizontal">{links}</ul>
+            <ul className="menu-horizontal space-x-5">{links}</ul>
           </div>
           <div className="navbar-end hidden lg:flex">
             <Link className="px-4 py-2 rounded-lg bg-primary-c text-white">

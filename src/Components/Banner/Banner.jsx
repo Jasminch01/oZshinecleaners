@@ -22,7 +22,7 @@ const Banner = () => {
 
       <div className="relative">
         <img
-          src="https://i.ibb.co/dW3ZDMH/Industries-bg.jpg"
+          src="https://i.ibb.co/5jKsXYh/banner.jpg"
           className="object-cover h-[900px] w-full bg-banner-bg bg-cover"
         />
 
