@@ -105,7 +105,7 @@ const Navbar = () => {
             <HashLink
               smooth
               to="/#home"
-              className="md:text-3xl text-white font-bold inline-block"
+              className={`md:text-3xl  font-bold inline-block ${scrolling ? 'text-black' : 'text-white'}`}
             >
              LOGO
             </HashLink>
