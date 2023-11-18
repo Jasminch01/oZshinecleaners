@@ -10,18 +10,18 @@ const Home = () => {
   return (
     <div id="home">
       <Banner></Banner>
-      <div className=" bg-secendary-c">
-        <div className="w-[80%] mx-auto">
+      <div className="bg-secendary-c">
+        <div className="max-w-6xl mx-auto">
           <Form></Form>
           <Services></Services>
           <AfterServices></AfterServices>
         </div>
       </div>
-      <div className="w-[80%] mx-auto">
+      <div className="max-w-6xl mx-auto">
         <Reviews></Reviews>
       </div>
-      <div className=" bg-secendary-c">
-        <div className="w-[80%] mx-auto">
+      <div className="bg-secendary-c">
+        <div className="max-w-6xl mx-auto">
           <Faq></Faq>
         </div>
       </div>

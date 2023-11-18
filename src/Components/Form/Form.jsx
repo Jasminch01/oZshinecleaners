@@ -4,7 +4,11 @@ import toast, { Toaster } from "react-hot-toast";
 import { TiStarFullOutline } from "react-icons/ti";
 
 const Form = () => {
-  const [services, setServices] = useState([{name:'End of Leash Cleaning', id:1}, {name:'Deep Cleaning', id:2}, {name:'Carpet Cleaning', id:3}]);
+  const [services, setServices] = useState([
+    { name: "End of Lease Cleaning", id: 1 },
+    { name: "Deep Cleaning", id: 2 },
+    { name: "Carpet Cleaning", id: 3 },
+  ]);
   const [roomes, setRooms] = useState([]);
 
   const [name, setName] = useState("");
@@ -54,8 +58,6 @@ const Form = () => {
       : ` w-full input input-bordered rounded-lg overflow-y-scroll`;
   };
 
-  
-
   //loded roomesdata form server api
   useEffect(() => {
     axios
@@ -85,8 +87,8 @@ const Form = () => {
     axios
       .post(`https://shine-home-server.vercel.app/quoteInfo`, quoteInfo)
       .then((res) => {
-        console.log(res.data)
-        if(res.data.acknowledged) {
+        console.log(res.data);
+        if (res.data.acknowledged) {
           toast.success("Successfully submited request");
         }
       });
@@ -95,11 +97,15 @@ const Form = () => {
   };
 
   return (
-    <div className="relative z-20 mb-20">
+    <div id="form" className="relative z-20 mb-20 px-5 lg:px-0">
       <div className="p-10 bg-white rounded-lg mb-20 -mt-20 z-20 shadow-lg max-w-4xl mx-auto">
         <form action="" className="" onSubmit={handleSubmit}>
-          <p className="text-center font-bold text-4xl mb-6">
+          <p className="text-center font-bold lg:text-4xl text-3xl mb-6">
             Get a Free Quote
+          </p>
+          <p className="text-center text-sm mb-6  text-gray-500">
+            Let us craft a tailored quote, providing you
+            with an estimated cost that aligns perfectly with your needs.
           </p>
           <div className="grid md:grid-cols-2 grid-cols-1 gap-5">
             <div>
@@ -218,9 +224,6 @@ const Form = () => {
               Submit
             </button>
           </div>
-        
-        
-       
         </form>
       </div>
     </div>

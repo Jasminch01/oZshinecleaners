@@ -1,34 +1,19 @@
-import { useEffect, useState } from "react";
+
+import { useLocation } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 
 const Footer = () => {
-  const [currentHash, setCurrentHash] = useState(window.location.hash);
-
-  useEffect(() => {
-    setCurrentHash(window.location.hash);
-  }, []);
+  
+  const location = useLocation();
   const links = (
     <>
       <li>
         <HashLink
           smooth
-          to="/#home"
-          className={`hover:border-b-2 ${
-            currentHash === "#about"
-              ? " border-b-2 border-red-500"
-              : "border-transparent"
-          }`}
-        >
-          Home
-        </HashLink>
-      </li>
-      <li>
-        <HashLink
-          smooth
           to="/#services"
           className={`hover:border-b-2 ${
-            currentHash === "#about"
-              ? " border-b-2 border-red-500"
+            location.pathname.includes("#services")
+              ? " text-primary-c"
               : "border-transparent"
           }`}
         >
@@ -38,12 +23,28 @@ const Footer = () => {
       <li>
         <HashLink
           smooth
-          to="/#about"
+          to="/#form"
           className={`hover:border-b-2 ${
-            currentHash === "#about" ? "border-red-500" : "border-transparent"
+            location.pathname.includes("#about")
+              ? "text-primary-c"
+              : "border-transparent"
           }`}
         >
-          About Us
+          Pricing
+        </HashLink>
+      </li>
+
+      <li>
+        <HashLink
+          smooth
+          to="/#faq"
+          className={`hover:border-b-2 ${
+            location.pathname.includes("#faq")
+              ? "text-primary-c"
+              : "border-transparent"
+          }`}
+        >
+          FAQ
         </HashLink>
       </li>
     </>

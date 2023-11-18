@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import { HiMenu } from "react-icons/hi";
+import { useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const [scrolling, setScrolling] = useState(false);
@@ -19,32 +20,16 @@ const Navbar = () => {
       window.removeEventListener("scroll", changeColor);
     };
   }, []);
-
-  const [currentHash, setCurrentHash] = useState(window.location.hash);
-
-  useEffect(() => {
-    setCurrentHash(window.location.hash);
-  }, []);
+  const location = useLocation();
 
   const links = (
     <>
       <li>
         <HashLink
           smooth
-          to="/#home"
-          className={`hover:border-b-2 ${
-            currentHash === "#home" ? " text-primary-c" : "border-transparent"
-          }`}
-        >
-          Home
-        </HashLink>
-      </li>
-      <li>
-        <HashLink
-          smooth
           to="/#services"
           className={`hover:border-b-2 ${
-            currentHash === "#services"
+            location.pathname.includes("#services")
               ? " text-primary-c"
               : "border-transparent"
           }`}
@@ -55,16 +40,35 @@ const Navbar = () => {
       <li>
         <HashLink
           smooth
-          to="/#about"
+          to="/#form"
           className={`hover:border-b-2 ${
-            currentHash === "#about" ? "text-primary-c" : "border-transparent"
+            location.pathname.includes("#about")
+              ? "text-primary-c"
+              : "border-transparent"
           }`}
         >
-          About Us
+          Pricing
+        </HashLink>
+      </li>
+
+      <li>
+        <HashLink
+          smooth
+          to="/#faq"
+          className={`hover:border-b-2 ${
+            location.pathname.includes("#faq")
+              ? "text-primary-c"
+              : "border-transparent"
+          }`}
+        >
+          FAQ
         </HashLink>
       </li>
     </>
   );
+
+
+
   return (
     <div
       className={
@@ -73,9 +77,11 @@ const Navbar = () => {
           : " fixed top-0 w-full mx-auto flex items-center z-20 transition duration-300 ease-in-out"
       }
     >
-      <div className="lg:mx-auto md:w-[80%]">
+      <div className="lg:mx-auto md:max-w-6xl w-full">
         <div
-          className={"flex items-center lg:py-4 fixed top-0 md:w-[80%] mx-auto"}
+          className={
+            "flex items-center lg:py-4 fixed top-0 md:max-w-6xl mx-auto w-full"
+          }
         >
           <div className="navbar-start flex items-center">
             <div className="dropdown">
@@ -99,9 +105,9 @@ const Navbar = () => {
             <HashLink
               smooth
               to="/#home"
-              className="md:text-3xl text-lime-500 font-bold inline-block"
+              className="md:text-3xl text-white font-bold inline-block"
             >
-              Cleaners
+             LOGO
             </HashLink>
           </div>
           <div
@@ -112,9 +118,9 @@ const Navbar = () => {
             <ul className="menu-horizontal space-x-5 text-lg">{links}</ul>
           </div>
           <div className="navbar-end hidden lg:flex">
-            <Link className="px-4 py-2 rounded-lg bg-primary-c text-white">
-              Contact us
-            </Link>
+            <HashLink  smooth to="/#form" className="px-4 py-2 rounded-lg bg-primary-c text-white">
+              Contact Us
+            </HashLink>
           </div>
         </div>
       </div>
