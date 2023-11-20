@@ -1,7 +1,7 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
-import toast, { Toaster } from "react-hot-toast";
-import { TiStarFullOutline } from "react-icons/ti";
+import { useState } from "react";
+import toast from "react-hot-toast";
+import emailjs from "@emailjs/browser";
 
 const Form = () => {
   const [services, setServices] = useState([
@@ -9,7 +9,16 @@ const Form = () => {
     { name: "Deep Cleaning", id: 2 },
     { name: "Carpet Cleaning", id: 3 },
   ]);
-  const [roomes, setRooms] = useState([]);
+  const [roomes, setRooms] = useState([
+    { num: 0 },
+    { num: 1 },
+    { num: 2 },
+    { num: 3 },
+    { num: 4 },
+    { num: 5 },
+    { num: 6 },
+    { num: 7 },
+  ]);
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -39,8 +48,8 @@ const Form = () => {
       setEmailError("");
     }
   };
-  //phone validation
 
+  //phone validation
   const validatePhone = () => {
     if (!phone) {
       setPhoneError("Phone number is required");
@@ -58,16 +67,6 @@ const Form = () => {
       : ` w-full input input-bordered rounded-lg overflow-y-scroll`;
   };
 
-  //loded roomesdata form server api
-  useEffect(() => {
-    axios
-      .get(`https://shine-home-server.vercel.app/bedrooms`)
-      .then((res) => setRooms(res.data))
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
-
   //form submited
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -75,6 +74,9 @@ const Form = () => {
     const serviceRequried = form.serviceRequried.value;
     const bedroom = form.bedroom.value;
     const bathroom = form.bathroom.value;
+    const livingArea = form.livingArea.value;
+    const laundryArea = form.laundryArea.value;
+    const kitchenArea = form.KitchenArea.value;
     const quoteInfo = {
       name,
       email,
@@ -82,17 +84,118 @@ const Form = () => {
       serviceRequried,
       bedroom,
       bathroom,
+      livingArea,
+      laundryArea,
+      kitchenArea,
+    };
+
+    const perHour = 60;
+    const bedRoomTimeHour = 2;
+    const bathRoomTimeHour = 1;
+    const livingAreaTimeHour = 1;
+    const laundryAreaTimeHour = 0.2;
+    const kitchenAreaTimeHour = 0.8;
+
+    let kitchenAreaPrice;
+    if (parseFloat(kitchenArea) > 0) {
+      kitchenAreaPrice = parseFloat(
+        kitchenArea * perHour * kitchenAreaTimeHour
+      );
+    } else {
+      kitchenAreaPrice = parseFloat(kitchenArea);
+    }
+
+    let laundryAreaPrice;
+    if (parseFloat(laundryArea) > 0) {
+      laundryAreaPrice = parseFloat(
+        laundryArea * perHour * laundryAreaTimeHour
+      );
+    } else {
+      laundryAreaPrice = parseFloat(laundryArea);
+    }
+
+    let livingAreaPrice;
+    if (parseFloat(livingArea) > 0) {
+      livingAreaPrice = parseFloat(livingArea * perHour * livingAreaTimeHour);
+    } else {
+      livingAreaPrice = parseFloat(livingArea);
+    }
+
+    let bedRoomPrice;
+    if (parseFloat(bedroom) > 0) {
+      bedRoomPrice = parseFloat(
+        (livingAreaPrice = bedroom * perHour * bedRoomTimeHour)
+      );
+    } else {
+      bedRoomPrice = parseFloat(bedroom);
+    }
+
+    let bathRoomPrice;
+    if (parseFloat(bathroom) > 0) {
+      bathRoomPrice = parseFloat(bathroom * perHour * bathRoomTimeHour);
+    } else {
+      bathRoomPrice = parseFloat(bathroom);
+    }
+
+    let totalCost =
+      kitchenAreaPrice +
+      laundryAreaPrice +
+      livingAreaPrice +
+      bedRoomPrice +
+      bathRoomPrice;
+
+    const cost = {
+      ...quoteInfo,
+      bedRoomPrice,
+      bathRoomPrice,
+      livingAreaPrice,
+      laundryAreaPrice,
+      kitchenAreaPrice,
+      totalCost,
+    };
+
+    const templateParams = {
+      to_email: [cost.email, "jasminchakma895@gmail.com"],
+      form_name: "cleaners",
+      form_email: "cleaners@gmail.com",
+      to_name: cost.name,
+      bedroom: cost.bedroom,
+      bathroom: cost.bathroom,
+      livingArea: cost.livingArea,
+      laundryArea: cost.laundryArea,
+      kitchenArea: cost.kitchenArea,
+      subject: "Your Quote Information",
+      bedRoomPrice,
+      bathRoomPrice,
+      livingAreaPrice,
+      laundryAreaPrice,
+      kitchenAreaPrice,
+      totalCost,
     };
 
     axios
-      .post(`https://shine-home-server.vercel.app/quoteInfo`, quoteInfo)
+      .post(`https://shine-home-server.vercel.app/quoteInfo`, templateParams)
       .then((res) => {
-        console.log(res.data);
         if (res.data.acknowledged) {
           toast.success("Successfully submited request");
+
+          emailjs
+            .send(
+              "service_usnc2ii",
+              "template_si8r5jh",
+              templateParams,
+              "7suywmfw3gonfLCeK"
+            )
+            .then(
+              (result) => {
+                console.log("Email sent successfully:", result);
+              },
+              (error) => {
+                console.error("Error sending email:", error.text);
+              }
+            );
         }
       });
-
     form.reset();
   };
 
@@ -104,8 +207,8 @@ const Form = () => {
             Get a Free Quote
           </p>
           <p className="text-center text-sm mb-6  text-gray-500">
-            Let us craft a tailored quote, providing you
-            with an estimated cost that aligns perfectly with your needs.
+            Let us craft a tailored quote, providing you with an estimated cost
+            that aligns perfectly with your needs.
           </p>
           <div className="grid md:grid-cols-2 grid-cols-1 gap-5">
             <div>
@@ -159,25 +262,26 @@ const Form = () => {
                 />
                 <span className="text-red-500 mt-2 text-xs">{phoneError}</span>
               </div>
-            </div>
-            <div className="">
-              <div>
+              <div className="">
                 <label className="label">
-                  <span className="label-text font-bold flex justify-center items-center gap-1">
-                    Service Requried
-                  </span>
+                  <span className="label-text font-bold ">Kitchen Area</span>
                 </label>
                 <select
-                  name="serviceRequried"
+                  name="KitchenArea"
                   id=""
-                  className={getInputClasses(!!nameError)}
+                  placeholder="select"
+                  className={getInputClasses(!!phoneError)}
                 >
-                  {services.map((service) => (
-                    <option key={service.id}>{service.name}</option>
+                  {roomes.map((room) => (
+                    <option className="p-5" key={room.num}>
+                      {room.num}
+                    </option>
                   ))}
                 </select>
               </div>
-              <div className="mt-2">
+            </div>
+            <div className="">
+              <div className="">
                 <label className="label">
                   <span className="label-text font-bold  flex justify-center items-center gap-1">
                     Bedroom
@@ -186,11 +290,11 @@ const Form = () => {
                 <select
                   name="bedroom"
                   id=""
-                  className={getInputClasses(!!emailError)}
+                  className={getInputClasses(!!nameError)}
                 >
                   {" "}
                   {roomes.map((room) => (
-                    <option key={room._id}>{room.value}</option>
+                    <option key={room.num}>{room.num}</option>
                   ))}
                 </select>
               </div>
@@ -202,16 +306,66 @@ const Form = () => {
                   name="bathroom"
                   id=""
                   placeholder="select"
+                  className={getInputClasses(!!emailError)}
+                >
+                  {roomes.map((room) => (
+                    <option className="p-5" key={room.num}>
+                      {room.num}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <div className="mt-2">
+                <label className="label">
+                  <span className="label-text font-bold ">Living Area</span>
+                </label>
+                <select
+                  name="livingArea"
+                  id=""
+                  placeholder="select"
                   className={getInputClasses(!!phoneError)}
                 >
                   {roomes.map((room) => (
-                    <option className="p-5" key={room._id}>
-                      {room.value}
+                    <option className="p-5" key={room.num}>
+                      {room.num}
+                    </option>
+                  ))}
+                </select>
+              </div>
+              <div className="mt-2">
+                <label className="label">
+                  <span className="label-text font-bold ">Laudry area</span>
+                </label>
+                <select
+                  name="laundryArea"
+                  id=""
+                  placeholder="select"
+                  className={getInputClasses(!!phoneError)}
+                >
+                  {roomes.map((room) => (
+                    <option className="p-5" key={room.num}>
+                      {room.num}
                     </option>
                   ))}
                 </select>
               </div>
             </div>
+          </div>
+          <div className="mt-3">
+            <label className="label">
+              <span className="label-text font-bold flex justify-center items-center gap-1">
+                Service Requried
+              </span>
+            </label>
+            <select
+              name="serviceRequried"
+              id=""
+              className={`w-full input input-bordered rounded-lg overflow-y-scroll`}
+            >
+              {services.map((service) => (
+                <option key={service.id}>{service.name}</option>
+              ))}
+            </select>
           </div>
           <div className="text-center">
             <button
