@@ -147,6 +147,11 @@ const Form = () => {
       bedRoomPrice +
       bathRoomPrice;
 
+      if(totalCost == 0){
+        toast.error('You must select atleast one service.');
+        return;
+      }
+
     const cost = {
       ...quoteInfo,
       bedRoomPrice,
@@ -323,6 +328,25 @@ const Form = () => {
             Let us craft a tailored quote, providing you with an estimated cost
             that aligns perfectly with your needs.
           </p>
+          <div className="mb-5">
+              <label className="label">
+                <span className="label-text font-bold flex justify-center items-center gap-1">
+                  Service Requried
+                  <span className="text-red-500 text-[18px]">*</span>
+                </span>
+               
+              </label>
+              <select
+                name="serviceRequried"
+                id=""
+           
+                className={`w-full input input-bordered rounded-lg overflow-y-scroll`}
+              >
+                {services.map((service) => (
+                  <option key={service.id}>{service.name}</option>
+                ))}
+              </select>
+            </div>
           <div className="grid md:grid-cols-2 grid-cols-1 gap-5">
             <div className="form-control">
               <label className="label">
@@ -374,22 +398,7 @@ const Form = () => {
               />
               <span className="text-red-500 mt-2 text-xs">{phoneError}</span>
             </div>
-            <div>
-              <label className="label">
-                <span className="label-text font-bold flex justify-center items-center gap-1">
-                  Service Requried
-                </span>
-              </label>
-              <select
-                name="serviceRequried"
-                id=""
-                className={`w-full input input-bordered rounded-lg overflow-y-scroll`}
-              >
-                {services.map((service) => (
-                  <option key={service.id}>{service.name}</option>
-                ))}
-              </select>
-            </div>
+           
             <div className="">
               <label className="label">
                 <span className="label-text font-bold ">Kitchen Area</span>

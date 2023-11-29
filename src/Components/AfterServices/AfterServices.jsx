@@ -2,7 +2,7 @@ import Swipers from "../Swipers/Swipers";
 
 const AfterServices = () => {
   return (
-    <div className="py-10 px-5 lg:px-0">
+    <div className="py-10 px-5 lg:px-0 max-w-6xl mx-auto">
       <div>
         <h2 className="text-center font-bold text-4xl lg:text-5xl">
           Showcasing Our Impeccable Results
