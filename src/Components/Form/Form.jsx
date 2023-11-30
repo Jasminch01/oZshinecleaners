@@ -3,6 +3,7 @@ import { useRef, useState } from "react";
 import toast from "react-hot-toast";
 import emailjs from "@emailjs/browser";
 import { IoClose } from "react-icons/io5";
+import "../../form.css";
 const Form = () => {
   const [services, setServices] = useState([
     { name: "End of Lease Cleaning", id: 1 },
@@ -50,16 +51,30 @@ const Form = () => {
     }
   };
 
-  //phone validation
+  // phone validation
+  // const validatePhone = () => {
+  //   if (!phone) {
+  //     setPhoneError("Phone number is required");
+  //   } else {
+  //     setPhoneError("");
+  //   }
+  // };
+
   const validatePhone = () => {
+    const phoneRegex = /^(?!0123456789$)(0|61)\d{10}$/;
+
     if (!phone) {
       setPhoneError("Phone number is required");
+    } else if (!phoneRegex.test(phone)) {
+      setPhoneError("Invalid phone number");
     } else {
       setPhoneError("");
     }
   };
 
-  const isSubmitDisabled = !name || !email || !phone;
+  const isSubmitDisabled = !name || !email || !phone || phoneError;
+
+  console.log(isSubmitDisabled);
 
   //set class when show error message for stop breaking style
   const getInputClasses = (error) => {
@@ -126,9 +141,7 @@ const Form = () => {
 
     let bedRoomPrice;
     if (parseFloat(bedroom) > 0) {
-      bedRoomPrice = parseFloat(
-        (livingAreaPrice = bedroom * perHour * bedRoomTimeHour)
-      );
+      bedRoomPrice = parseFloat(bedroom * perHour * bedRoomTimeHour);
     } else {
       bedRoomPrice = parseFloat(bedroom);
     }
@@ -140,17 +153,20 @@ const Form = () => {
       bathRoomPrice = parseFloat(bathroom);
     }
 
-    let totalCost =
+    let totalCostGst =
       kitchenAreaPrice +
       laundryAreaPrice +
       livingAreaPrice +
       bedRoomPrice +
       bathRoomPrice;
 
-      if(totalCost == 0){
-        toast.error('You must select atleast one service.');
-        return;
-      }
+    if (totalCostGst === 0) {
+      toast.error("You must select atleast one service.");
+      return;
+    }
+
+    const gst = (10 / 100) * totalCostGst;
+    const totalCost = totalCostGst - gst;
 
     const cost = {
       ...quoteInfo,
@@ -159,11 +175,13 @@ const Form = () => {
       livingAreaPrice,
       laundryAreaPrice,
       kitchenAreaPrice,
+      totalCostGst,
       totalCost,
     };
 
-    setFormDetails({ quoteInfo, totalCost });
-    console.log(formDeatails);
+    setFormDetails({ quoteInfo, totalCost, totalCostGst });
+
+    //send email tamplate params
     const templateParams = {
       to_email: [cost.email, "jasminchakma895@gmail.com"],
       form_name: "cleaners",
@@ -180,6 +198,7 @@ const Form = () => {
       livingAreaPrice,
       laundryAreaPrice,
       kitchenAreaPrice,
+      totalCostGst,
       totalCost,
     };
 
@@ -219,14 +238,13 @@ const Form = () => {
       <div className="p-10 bg-white rounded-lg mb-20 -mt-20 z-20 shadow-lg max-w-4xl mx-auto">
         <dialog
           ref={modalRef}
-         
           className="rounded-lg modal w-[40rem] mx-auto my-auto h-[33rem]  bg-secendary-c border-2 border-sky-200 "
         >
           <IoClose
             onClick={handleModalClose}
             className="modal-close-btn fill-gray-500 text-2xl absolute top-2 right-2 cursor-pointer"
           />
-          <div >
+          <div>
             <div>
               <h2 className="text-2xl text-center font-semibold text-primary-c">
                 Aprox. Cost
@@ -243,10 +261,8 @@ const Form = () => {
                     <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">
                       Quantity
                     </th>
-                   
                   </tr>
                 </thead>
-            
 
                 <tbody className="text-sm">
                   <tr>
@@ -298,7 +314,8 @@ const Form = () => {
                     <td class="border-t-2 border-gray-200 px-4 py-3"></td>
                     <td class="border-t-2 border-gray-200 px-4 py-3"></td>
                     <td class="border-t-2 border-gray-200 px-4 py-3 text-sm font-semibold text-gray-700">
-                      Total Price: {formDeatails.totalCost} AUD
+                      Total Price: {formDeatails.totalCost} AUD <br />
+                      Including GST: {formDeatails.totalCostGst} AUD
                     </td>
                   </tr>
                 </tbody>
@@ -329,24 +346,22 @@ const Form = () => {
             that aligns perfectly with your needs.
           </p>
           <div className="mb-5">
-              <label className="label">
-                <span className="label-text font-bold flex justify-center items-center gap-1">
-                  Service Requried
-                  <span className="text-red-500 text-[18px]">*</span>
-                </span>
-               
-              </label>
-              <select
-                name="serviceRequried"
-                id=""
-           
-                className={`w-full input input-bordered rounded-lg overflow-y-scroll`}
-              >
-                {services.map((service) => (
-                  <option key={service.id}>{service.name}</option>
-                ))}
-              </select>
-            </div>
+            <label className="label">
+              <span className="label-text font-bold flex justify-center items-center gap-1">
+                Service Requried
+                <span className="text-red-500 text-[18px]">*</span>
+              </span>
+            </label>
+            <select
+              name="serviceRequried"
+              id=""
+              className={`w-full input input-bordered rounded-lg overflow-y-scroll`}
+            >
+              {services.map((service) => (
+                <option key={service.id}>{service.name}</option>
+              ))}
+            </select>
+          </div>
           <div className="grid md:grid-cols-2 grid-cols-1 gap-5">
             <div className="form-control">
               <label className="label">
@@ -390,7 +405,8 @@ const Form = () => {
               </label>
               <input
                 name="phoneNumber"
-                type="text"
+                type="number"
+                inputMode="numeric"
                 onChange={(e) => setPhone(e.target.value)}
                 onBlur={validatePhone}
                 className=" input rounded-lg input-bordered w-full"
@@ -398,7 +414,7 @@ const Form = () => {
               />
               <span className="text-red-500 mt-2 text-xs">{phoneError}</span>
             </div>
-           
+
             <div className="">
               <label className="label">
                 <span className="label-text font-bold ">Kitchen Area</span>
@@ -490,8 +506,8 @@ const Form = () => {
           <div className="text-center">
             <button
               type="submit"
-              className={`px-8 py-2 font-semibold cursor-pointer hover:bg-lime-600 transition-all mt-8 uppercase ${
-                isSubmitDisabled ? `bg-lime-400` : "bg-primary-c"
+              className={`px-8 py-2 font-semibold transition-all mt-8 uppercase ${
+                isSubmitDisabled ? `bg-lime-600` : "bg-primary-c"
               } bg-primary-c text-white rounded`}
               disabled={isSubmitDisabled}
             >

@@ -50,7 +50,7 @@ const Footer = () => {
     </>
   );
   return (
-    <div className=" bg-black space-y-5 py-20">
+    <div className=" bg-black space-y-5 py-20 ">
       <div className="navbar-center flex justify-center items-center text-white">
         <ul className=" md:menu-horizontal flex flex-wrap flex-col text-center md:space-x-10 ">
           {links}
