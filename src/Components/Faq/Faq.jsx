@@ -32,7 +32,7 @@ const Faq = () => {
   };
 
   return (
-    <div id="faq" className="py-20 px-5 h-[70vh] md:px-0 lg:px-0">
+    <div id="faq" className="py-20 px-5 md:h-[70vh] h-[90vh] md:px-0 lg:px-0">
       <div className="mb-10">
         <p className="text-center font-bold text-4xl lg:text-5xl">FAQ</p>
         <p className="text-center mt-4 text-gray-500 text-sm lg:text-lg">
