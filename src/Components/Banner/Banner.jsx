@@ -65,7 +65,7 @@ const Banner = () => {
             </div>
             <div className="flex items-center gap-1 justify-center">
               <img src="https://cdn-icons-png.flaticon.com/128/10809/10809834.png" className="w-14" alt="" />
-              <p>Bond Back Guarantee</p>
+              <p>100% Bond Back Guarantee</p>
             </div>
           </div>
             </div>
