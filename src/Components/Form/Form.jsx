@@ -51,17 +51,13 @@ const Form = () => {
     }
   };
 
-  // phone validation
-  // const validatePhone = () => {
-  //   if (!phone) {
-  //     setPhoneError("Phone number is required");
-  //   } else {
-  //     setPhoneError("");
-  //   }
-  // };
-
   const validatePhone = () => {
-    const phoneRegex = /^(?!0123456789$)(0|61)\d{10}$/;
+
+    const phoneRegex = /^(?:\+?61|0)[2-478](?:[ -]?[0-9]){8}$/;
+
+    // (?:\+?61|0): Matches either an optional '+' followed by '61' or just '0'.
+    // [2-478]: Matches the first digit of the area code, which should be 2, 3, 4, 7, or 8.
+    // (?:[ -]?[0-9]){8}: Matches 8 digits, allowing for an optional space or hyphen after the first digit.
 
     if (!phone) {
       setPhoneError("Phone number is required");
@@ -192,6 +188,7 @@ const Form = () => {
       livingArea: cost.livingArea,
       laundryArea: cost.laundryArea,
       kitchenArea: cost.kitchenArea,
+      phone: quoteInfo.phone,
       subject: "Your Quote Information",
       bedRoomPrice,
       bathRoomPrice,
@@ -252,13 +249,13 @@ const Form = () => {
             </div>
 
             <div className="mt-4">
-              <table class="table-auto w-full text-left whitespace-no-wrap">
+              <table className="table-auto w-full text-left whitespace-no-wrap">
                 <thead>
                   <tr>
-                    <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100 rounded-tl rounded-bl">
+                    <th className="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100 rounded-tl rounded-bl">
                       Service
                     </th>
-                    <th class="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">
+                    <th className="px-4 py-3 title-font tracking-wider font-medium text-gray-900 text-sm bg-gray-100">
                       Quantity
                     </th>
                   </tr>
@@ -266,54 +263,54 @@ const Form = () => {
 
                 <tbody className="text-sm">
                   <tr>
-                    <td class="border-t-2 border-gray-200 px-4 py-3">
+                    <td className="border-t-2 border-gray-200 px-4 py-3">
                       Bedroom
                     </td>
-                    <td class="border-t-2 border-gray-200 px-4 py-3">
+                    <td className="border-t-2 border-gray-200 px-4 py-3">
                       {formDeatails?.quoteInfo?.bedroom || 0}
                     </td>
-                    <td class="border-t-2 border-gray-200 px-4 py-3"></td>
+                    <td className="border-t-2 border-gray-200 px-4 py-3"></td>
                   </tr>
                   <tr>
-                    <td class="border-t-2 border-gray-200 px-4 py-3">
+                    <td className="border-t-2 border-gray-200 px-4 py-3">
                       Bathroom
                     </td>
-                    <td class="border-t-2 border-gray-200 px-4 py-3">
+                    <td className="border-t-2 border-gray-200 px-4 py-3">
                       {formDeatails?.quoteInfo?.bathroom || 0}
                     </td>
-                    <td class="border-t-2 border-gray-200 px-4 py-3"></td>
+                    <td className="border-t-2 border-gray-200 px-4 py-3"></td>
                   </tr>
                   <tr>
-                    <td class="border-t-2 border-gray-200 px-4 py-3">
+                    <td className="border-t-2 border-gray-200 px-4 py-3">
                       Living Area
                     </td>
-                    <td class="border-t-2 border-gray-200 px-4 py-3">
+                    <td className="border-t-2 border-gray-200 px-4 py-3">
                       {formDeatails?.quoteInfo?.livingArea || 0}
                     </td>
-                    <td class="border-t-2 border-gray-200 px-4 py-3"></td>
+                    <td className="border-t-2 border-gray-200 px-4 py-3"></td>
                   </tr>
                   <tr>
-                    <td class="border-t-2 border-gray-200 px-4 py-3">
+                    <td className="border-t-2 border-gray-200 px-4 py-3">
                       Kitchen Area
                     </td>
-                    <td class="border-t-2 border-gray-200 px-4 py-3">
+                    <td className="border-t-2 border-gray-200 px-4 py-3">
                       {formDeatails?.quoteInfo?.kitchenArea || 0}
                     </td>
-                    <td class="border-t-2 border-gray-200 px-4 py-3"></td>
+                    <td className="border-t-2 border-gray-200 px-4 py-3"></td>
                   </tr>
                   <tr>
-                    <td class="border-t-2 border-gray-200 px-4 py-3">
+                    <td className="border-t-2 border-gray-200 px-4 py-3">
                       Laundry Area
                     </td>
-                    <td class="border-t-2 border-gray-200 px-4 py-3">
+                    <td className="border-t-2 border-gray-200 px-4 py-3">
                       {formDeatails?.quoteInfo?.laundryArea || 0}
                     </td>
-                    <td class="border-t-2 border-gray-200 px-4 py-3"></td>
+                    <td className="border-t-2 border-gray-200 px-4 py-3"></td>
                   </tr>
                   <tr>
-                    <td class="border-t-2 border-gray-200 px-4 py-3"></td>
-                    <td class="border-t-2 border-gray-200 px-4 py-3"></td>
-                    <td class="border-t-2 border-gray-200 px-4 py-3 text-sm font-semibold text-gray-700">
+                    <td className="border-t-2 border-gray-200 px-4 py-3"></td>
+                    <td className="border-t-2 border-gray-200 px-4 py-3"></td>
+                    <td className="border-t-2 border-gray-200 px-4 py-3 text-sm font-semibold text-gray-700">
                       Total Price: {formDeatails.totalCost} AUD <br />
                       Including GST: {formDeatails.totalCostGst} AUD
                     </td>
