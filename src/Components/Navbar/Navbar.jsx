@@ -6,6 +6,7 @@ import { useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const [scrolling, setScrolling] = useState(false);
+ 
   const changeColor = () => {
     if (window.scrollY >= 10) {
       setScrolling(true);
@@ -24,6 +25,19 @@ const Navbar = () => {
 
   const links = (
     <>
+       <li>
+        <Link
+         
+          to="/about"
+          className={`hover:border-b-2 ${
+            location.pathname.includes("#about")
+              ? "text-primary-c"
+              : "border-transparent"
+          }`}
+        >
+          About Us
+        </Link>
+      </li>
       <li>
         <HashLink
           smooth
@@ -74,7 +88,7 @@ const Navbar = () => {
       className={
         scrolling
           ? "flex items-center py-7 lg:py-10 z-30 bg-secendary-c fixed top-0  w-full mx-auto"
-          : " fixed top-0 w-full mx-auto flex items-center z-20 transition duration-300 ease-in-out"
+          : `fixed top-0 w-full mx-auto flex items-center py-10  z-20 transition duration-300 ease-in-out `
       }
     >
       <div className="lg:mx-auto md:max-w-6xl w-full">
