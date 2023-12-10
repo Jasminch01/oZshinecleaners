@@ -336,11 +336,12 @@ const Form = () => {
 
         <form action="" className="" onSubmit={handleSubmit}>
           <p className="text-center font-bold lg:text-4xl text-3xl mb-6">
-            Get a Free Quote
+            Get Your Personalized Quote
           </p>
           <p className="text-center text-sm mb-6  text-gray-500">
-            Let us craft a tailored quote, providing you with an estimated cost
-            that aligns perfectly with your needs.
+            Allow us to meticulously create a tailored quote, providing you with
+            a detailed estimate perfectly aligned with your specific cleaning
+            needs.
           </p>
           <div className="mb-5">
             <label className="label">

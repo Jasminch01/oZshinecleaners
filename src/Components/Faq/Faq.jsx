@@ -6,24 +6,18 @@ const Faq = () => {
 
   const accordionData = [
     {
-      title: "How do I request a cleaning service?",
-      content: `You can easily request a service by contacting us through our
-      website, phone, or email. Our friendly team will guide you
-      through the process and schedule a convenient time for your
-      cleaning.`,
+      title:
+        "How can I get a free quote for Melbourne cleaning services with OzShine Cleaners Melbourne?",
+      content: `Request a free quote effortlessly through our user-friendly online form, ensuring a detailed estimate tailored to your specific cleaning requirements.`,
     },
     {
-      title: "How do you ensure quality and satisfaction?",
-      content: `We prioritize quality and satisfaction by employing experienced
-      professionals, using top-notch cleaning products, and conducting
-      thorough inspections. If you ever have concerns, we're here to
-      address them promptly.`,
+      title:
+        "Can I schedule regular house cleaning services with OzShine Cleaners Melbourne?",
+      content: `Absolutely! Customize your cleaning needs with our dedicated team, offering routine house cleaning, deep cleaning, and specialized services.`,
     },
     {
-      title: "Can I customize my cleaning service?",
-      content: `Yes, you can customize your cleaning service according to your
-      specific needs. Contact us, and our team will work with you to
-      tailor our services to meet your requirements.`,
+      title: "What sets OzShine Cleaners Melbourne apart as a leading Melbourne cleaning company?      ",
+      content: `Radiance Cleaning stands out with reliable professionals, consistent excellence, excellent reviews, and a bond back guarantee—your trusted choice in Melbourne.`,
     },
   ];
 

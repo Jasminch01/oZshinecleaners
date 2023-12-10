@@ -6,11 +6,10 @@ const BookingStep = () => {
         id="bookingsteps"
       >
         <p className="text-center font-bold text-4xl lg:text-5xl">
-          Easy 3-Step Cleaning Process
+        Streamlined 3-Step House Cleaning Melbourne Process
         </p>
         <p className="text-center text-sm lg:text-lg mt-4 text-gray-300">
-          Discover the simplicity of our cleaning service with just three easy
-          steps:
+        Discover the Effortless Process of our Cleaning Service with just three simple steps:
         </p>
         <div className="grid md:grid-cols-3 grid-cols-1 gap-20  mt-20">
           <div

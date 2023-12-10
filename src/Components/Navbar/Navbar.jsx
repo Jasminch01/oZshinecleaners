@@ -121,7 +121,7 @@ const Navbar = () => {
               to="/#home"
               className={`md:text-3xl  font-bold inline-block ${scrolling ? 'text-black' : 'text-white'}`}
             >
-             LOGO
+            <span className="font-light">OzShine</span> Cleaners
             </HashLink>
           </div>
           <div

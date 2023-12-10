@@ -5,11 +5,12 @@ const Services = () => {
   return (
     <div className=" min-h-[100vh] flex justify-center items-center flex-col px-5 lg:px-0 max-w-6xl mx-auto" id="services">
       <p className="text-center font-bold text-4xl lg:text-5xl">
-        Always Provide The Best Service
+      Consistent Excellence in Melbourne Cleaning Services
+
       </p>
       <p className="text-center text-sm lg:text-lg mt-4 text-gray-500">
-        We Consistently Deliver the Best Service for Your Cleaning Needs in
-        Melbourne
+      We Always Deliver Superior Service for Your Varied Cleaning Requirements in Melbourne
+
       </p>
       <div className="grid md:grid-cols-3 grid-cols-1 gap-5 my-20 ">
         <div
