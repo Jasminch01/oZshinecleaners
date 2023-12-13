@@ -31,17 +31,17 @@ const Banner = () => {
 
         <div className="absolute z-0 inset-0 bg-black opacity-50"></div>
 
-        <div className="absolute z-0 top-[45%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-center w-[90%] lg:w-full">
+        <div className="absolute z-0 top-[55%] lg:top-[45%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-center w-[90%] lg:w-full">
           <h1 className="mb-5 lg:text-6xl leading-[120px] font-bold text-white hidden lg:block w-[80%] mx-auto">
-          Transform Your Melbourne Space with Your Ultimate Home Cleaning Partner
+          Your Ultimate Home Cleaning Partner 
           </h1>
 
           <h1 className="mb-5 text-5xl font-bold text-white leading-[3.5rem] lg:hidden w-full">
-          Transform Your Melbourne Space with Your Ultimate Home Cleaning Partner
+          Your Ultimate Home Cleaning Partner 
           </h1>
          
           <p className="mb-5 text-gray-200 text-sm lg:text-lg font-medium font-Roboto leading-relaxed px-10">
-          Feel free to connect with our best Melbourne cleaning company to confirm your booking – just a call away!
+          We're Just A Call Away
           </p>
           <button
               

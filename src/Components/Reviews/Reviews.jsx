@@ -16,18 +16,15 @@ const Reviews = () => {
             alt=""
             className="w-10 bg-primary-c rounded-full"
           />
-          <p className="">
-            Call the cleaners were great! Yeshi <br /> cleaned our place and did
-            an awesome job. <br /> We had a bond clean
+          <p className="text-gray-500">
+            OzShine Cleaners did an amazing job! Our home looks super clean now.
+            They were really nice and careful with everything. I totally
+            recommend them!
           </p>
           <div className="flex justify-between">
             <div className="flex gap-3 items-center">
-              <img
-                className="rounded-full w-10"
-                src="https://i.ibb.co/s59H4Mx/girl1.jpg"
-                alt=""
-              />
-              <p>David halala</p>
+              <img className="rounded-full w-10" src="/client/1.jpeg" alt="" />
+              <p>Wyat Morgan</p>
             </div>
             <div className="flex items-center">
               <TiStarFullOutline className="text-amber-500"></TiStarFullOutline>
@@ -44,18 +41,15 @@ const Reviews = () => {
             alt=""
             className="w-10 bg-primary-c rounded-full"
           />
-          <p className="">
-            Call the cleaners were great! Yeshi <br /> cleaned our place and did
-            an awesome job. <br /> We had a bond clean
+           <p className="text-gray-500">
+            Wow, OzShine Cleaners is awesome! They made our place so clean and
+            shiny. They came on time, were really friendly, and did a great job.
+            So happy with them!
           </p>
           <div className="flex justify-between">
             <div className="flex gap-3 items-center">
-              <img
-                className="rounded-full w-10"
-                src="https://i.ibb.co/s59H4Mx/girl1.jpg"
-                alt=""
-              />
-              <p>David halala</p>
+              <img className="rounded-full w-10" src="/client/2.jpeg" alt="" />
+              <p>Mia Rodriguez</p>
             </div>
             <div className="flex items-center">
               <TiStarFullOutline className="text-amber-500"></TiStarFullOutline>
@@ -72,18 +66,15 @@ const Reviews = () => {
             alt=""
             className="w-10 bg-primary-c rounded-full"
           />
-          <p className="">
-            Call the cleaners were great! Yeshi <br /> cleaned our place and did
-            an awesome job. <br /> We had a bond clean
+           <p className="text-gray-500">
+            OzShine Cleaners is the best! Our office is super clean now. They
+            worked really hard, and everyone is happy with how nice it looks.
+            They're really good at cleaning!
           </p>
           <div className="flex justify-between">
             <div className="flex gap-3 items-center">
-              <img
-                className="rounded-full w-10"
-                src="https://i.ibb.co/s59H4Mx/girl1.jpg"
-                alt=""
-              />
-              <p>David halala</p>
+              <img className="rounded-full w-10" src="/client/3.jpeg" alt="" />
+              <p>Emma Thompson</p>
             </div>
             <div className="flex items-center">
               <TiStarFullOutline className="text-amber-500"></TiStarFullOutline>

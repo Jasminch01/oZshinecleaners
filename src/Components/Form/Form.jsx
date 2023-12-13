@@ -70,8 +70,6 @@ const Form = () => {
 
   const isSubmitDisabled = !name || !email || !phone || phoneError;
 
-  console.log(isSubmitDisabled);
-
   //set class when show error message for stop breaking style
   const getInputClasses = (error) => {
     return error
