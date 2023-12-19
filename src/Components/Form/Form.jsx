@@ -177,9 +177,9 @@ const Form = () => {
 
     //send email tamplate params
     const templateParams = {
-      to_email: [cost.email, "jasminchakma895@gmail.com"],
-      form_name: "cleaners",
-      form_email: "cleaners@gmail.com",
+      to_email: [cost.email, "ozshinecleaners@zohomail.com.au"],
+      form_name: "ozshinecleaners",
+      form_email: "ozshinecleaners.com.au",
       to_name: cost.name,
       bedroom: cost.bedroom,
       bathroom: cost.bathroom,
@@ -205,10 +205,10 @@ const Form = () => {
 
           emailjs
             .send(
-              "service_usnc2ii",
-              "template_si8r5jh",
+              import.meta.env.VITE_SERVICE_ID,
+              import.meta.env.VITE_TEMPLATE_ID,
               templateParams,
-              "7suywmfw3gonfLCeK"
+              import.meta.env.VITE_PUBLIC_KEY
             )
             .then(
               (result) => {

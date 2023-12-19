@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
-import { HiMenu } from "react-icons/hi";
+// import { HiMenu } from "react-icons/hi";
 import { useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const [scrolling, setScrolling] = useState(false);
- 
+
   const changeColor = () => {
     if (window.scrollY >= 10) {
       setScrolling(true);
@@ -25,24 +25,23 @@ const Navbar = () => {
 
   const links = (
     <>
-       <li>
+      <li>
         <Link
-         
           to="/about"
-          className={`hover:border-b-2 ${
+          className={`hover:border-b-2 text-sm md:text-base ${
             location.pathname.includes("#about")
               ? "text-primary-c"
               : "border-transparent"
           }`}
         >
-          About Us
+          About
         </Link>
       </li>
       <li>
         <HashLink
           smooth
           to="/#services"
-          className={`hover:border-b-2 ${
+          className={`hover:border-b-2 text-sm md:text-base ${
             location.pathname.includes("#services")
               ? " text-primary-c"
               : "border-transparent"
@@ -55,7 +54,7 @@ const Navbar = () => {
         <HashLink
           smooth
           to="/#form"
-          className={`hover:border-b-2 ${
+          className={`hover:border-b-2 text-sm md:text-base ${
             location.pathname.includes("#about")
               ? "text-primary-c"
               : "border-transparent"
@@ -69,7 +68,7 @@ const Navbar = () => {
         <HashLink
           smooth
           to="/#faq"
-          className={`hover:border-b-2 ${
+          className={`hover:border-b-2 hidden md:inline ${
             location.pathname.includes("#faq")
               ? "text-primary-c"
               : "border-transparent"
@@ -81,14 +80,12 @@ const Navbar = () => {
     </>
   );
 
-
-
   return (
     <div
       className={
         scrolling
           ? "flex items-center py-7 lg:py-10 z-30 bg-secendary-c fixed top-0  w-full mx-auto"
-          : `fixed top-0 w-full mx-auto flex items-center py-10  z-20 transition duration-300 ease-in-out `
+          : `fixed top-0 w-full mx-auto flex items-center py-10 z-20 transition duration-300 ease-in-out `
       }
     >
       <div className="lg:mx-auto md:max-w-6xl w-full">
@@ -97,8 +94,8 @@ const Navbar = () => {
             "flex items-center lg:py-4 fixed top-0 md:max-w-6xl mx-auto w-full"
           }
         >
-          <div className="navbar-start flex items-center">
-            <div className="dropdown">
+          <div className="navbar-start p-5 flex items-center">
+            {/* <div className="dropdown">
               <label tabIndex={0} className="btn btn-ghost lg:hidden">
                 <HiMenu
                   className={
@@ -115,24 +112,33 @@ const Navbar = () => {
                   <Link className=" bg-[#69BB48] text-white">Contact us</Link>
                 </li>
               </ul>
-            </div>
+             
+            </div> */}
             <HashLink
               smooth
               to="/#home"
-              className={`md:text-3xl  font-bold inline-block ${scrolling ? 'text-black' : 'text-white'}`}
+              className={`md:text-3xl font-bold inline-block ${
+                scrolling ? "text-black" : "text-white"
+              }`}
             >
-            <span className="font-light">OzShine</span> Cleaners
+              <span className="md:font-light">OzShine</span> Cleaners
             </HashLink>
           </div>
+
+          {/* for large devices */}
           <div
-            className={`navbar-center hidden lg:flex ${
+            className={`navbar-center flex${
               scrolling ? `text-black` : ` text-white`
             }`}
           >
             <ul className="menu-horizontal space-x-5 text-lg">{links}</ul>
           </div>
-          <div className="navbar-end hidden lg:flex">
-            <HashLink  smooth to="/#form" className="px-4 py-2 rounded-lg bg-primary-c text-white">
+          <div className="md:navbar-end hidden lg:flex">
+            <HashLink
+              smooth
+              to="/#form"
+              className="md:px-4 md:py-2 rounded-lg bg-primary-c text-white"
+            >
               Contact Us
             </HashLink>
           </div>
