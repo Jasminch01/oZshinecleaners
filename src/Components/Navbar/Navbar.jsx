@@ -84,14 +84,14 @@ const Navbar = () => {
     <div
       className={
         scrolling
-          ? "flex items-center py-7 lg:py-10 z-30 bg-secendary-c fixed top-0  w-full mx-auto"
+          ? "flex items-center py-7 md:py-10 z-30 bg-secendary-c fixed top-0  w-full mx-auto"
           : `fixed top-0 w-full mx-auto flex items-center py-10 z-20 transition duration-300 ease-in-out `
       }
     >
       <div className="lg:mx-auto md:max-w-6xl w-full">
         <div
           className={
-            "flex items-center lg:py-4 fixed top-0 md:max-w-6xl mx-auto w-full"
+            "flex items-center  fixed top-0 md:max-w-6xl mx-auto w-full"
           }
         >
           <div className="navbar-start p-5 flex items-center">

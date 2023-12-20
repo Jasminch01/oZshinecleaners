@@ -20,8 +20,8 @@ const Swipers = () => {
       after: "https://i.ibb.co/R4HYnWL/after-8.jpg",
     },
     {
-      before: "https://i.ibb.co/Kj8vWc7/before-11.jpg",
-      after: "https://i.ibb.co/R3VTT07/after-6.jpg",
+      before: "https://i.ibb.co/Qkdf2bH/before-9.jpg",
+      after: "https://i.ibb.co/jzNC24C/after-7.jpg",
     },
     {
       before: "https://i.ibb.co/jLCNy7Z/before-3.jpg",
