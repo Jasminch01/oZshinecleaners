@@ -177,7 +177,7 @@ const Form = () => {
 
     //send email tamplate params
     const templateParams = {
-      to_email: [cost.email, "ozshinecleaners@zohomail.com.au"],
+      to_email: [cost.email, "ozshinecleaners@gmail.com"],
       form_name: "ozshinecleaners",
       form_email: "ozshinecleaners.com.au",
       to_name: cost.name,

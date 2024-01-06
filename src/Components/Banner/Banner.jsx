@@ -34,7 +34,7 @@ const Banner = () => {
           </HashLink>
 
           <div>
-            <div className="flex space-y-5 md:space-y-0 items-center font-bold bg-slate-400/20 py-6  justify-center flex-col lg:flex-row  gap-2 lg:gap-10 mt-10">
+            <div className="flex space-y-5 md:space-y-0 items-center font-bold bg-slate-400/20 py-6  justify-center flex-col lg:flex-row  gap-2 lg:gap-10 mt-10 xsm:mb-32">
               <div className="flex gap-1 items-center justify-center">
                 <img
                   src="https://cdn-icons-png.flaticon.com/128/1161/1161388.png"
