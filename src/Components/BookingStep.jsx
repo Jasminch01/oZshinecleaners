@@ -5,7 +5,7 @@ const BookingStep = () => {
         className=" flex justify-center items-center flex-col px-5 lg:px-0  py-20 max-w-6xl mx-auto"
         id="bookingsteps"
       >
-        <p className="text-center font-bold text-4xl lg:text-5xl">
+        <p className="text-center font-bold text-4xl lg:text-5xl xsm:text-2xl">
         Streamlined 3-Step House Cleaning Melbourne Process
         </p>
         <p className="text-center text-sm lg:text-lg mt-4 text-gray-300">
@@ -21,7 +21,7 @@ const BookingStep = () => {
               alt=""
             />
             <div className="flex justify-center flex-col">
-              <p className={`text-center text-2xl font-bold mt-5 `}>
+              <p className={`text-center text-2xl font-bold mt-5  xsm:text-2xl`}>
                 1. Calculate Cost for Free
               </p>
               <p className="text-base mt-3  text-gray-400 text-center">
@@ -40,7 +40,7 @@ const BookingStep = () => {
               alt=""
             />
             <div className="flex justify-center flex-col">
-              <p className={`text-center text-2xl font-bold mt-5 `}>
+              <p className={`text-center text-2xl font-bold mt-5 xsm:text-2xl `}>
                 2. Call for Booking
               </p>
               <p className="text-base mt-3  text-gray-400 text-center">
@@ -59,7 +59,7 @@ const BookingStep = () => {
               alt=""
             />
             <div className="flex justify-center flex-col">
-              <p className={`text-center text-2xl font-bold mt-5 `}>
+              <p className={`text-center text-2xl font-bold mt-5 xsm:text-2xl `}>
               3. We Come and Clean
               </p>
               <p className="text-base mt-3  text-gray-400 text-center">

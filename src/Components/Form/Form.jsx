@@ -333,7 +333,7 @@ const Form = () => {
         </dialog>
 
         <form action="" className="" onSubmit={handleSubmit}>
-          <p className="text-center font-bold lg:text-4xl text-3xl mb-6">
+          <p className="text-center font-bold lg:text-4xl text-3xl xsm:text-2xl mb-6">
             Get Your Personalized Quote
           </p>
           <p className="text-center text-sm mb-6  text-gray-500">
@@ -502,8 +502,8 @@ const Form = () => {
           <div className="text-center">
             <button
               type="submit"
-              className={`px-8 py-2 font-semibold transition-all mt-8 uppercase ${
-                isSubmitDisabled ? `bg-lime-600` : "bg-primary-c"
+              className={`px-8 py-2 font-semibold transition-all mt-8 xsm:text-sm xsm:px-3 uppercase ${
+                isSubmitDisabled ? `bg-[#82c769]` : "bg-primary-c"
               } bg-primary-c text-white rounded`}
               disabled={isSubmitDisabled}
             >

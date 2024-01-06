@@ -13,11 +13,11 @@ const Banner = () => {
         <div className="absolute z-0 inset-0 bg-black opacity-50"></div>
 
         <div className="absolute z-0 top-[55%] lg:top-[45%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white text-center w-[90%] lg:w-full">
-          <h1 className="mb-5 lg:text-6xl leading-[120px] font-bold text-white hidden lg:block w-[80%] mx-auto">
+          <p className="mb-5 md:text-6xl leading-[120px] font-bold text-white hidden md:block w-[80%] mx-auto">
             Your Ultimate Home Cleaning Partner
-          </h1>
+          </p>
 
-          <h1 className="mb-5 text-5xl font-bold text-white leading-[3.5rem] lg:hidden w-full">
+          <h1 className="mb-5 text-5xl xsm:text-4xl font-bold text-white leading-[3.5rem] md:hidden w-full">
             Your Ultimate Home Cleaning Partner
           </h1>
 
@@ -27,7 +27,7 @@ const Banner = () => {
 
           <HashLink to="#form" smooth>
             <button
-              className={`px-6 py-3 mt-5 uppercase  bg-primary-c hover:bg-primary-c/80 transition-all text-white rounded-md font-semibold`}
+              className={`px-6 py-3 mt-5 uppercase  bg-primary-c hover:bg-primary-c/80 transition-all text-white rounded-md font-semibold xsm:text-sm xsm:px-3`}
             >
               REQUEST A FREE QUOTE NOW
             </button>

@@ -5,11 +5,11 @@ const About = () => {
     <div>
       <div className="bg-slate-800 min-h-screen py-16">
         <div className="pt-28 text-white text-center  md:w-full">
-          <h1 className="mb-5 lg:text-6xl leading-[120px] font-bold text-white hidden lg:block">
+          <h1 className="mb-5 lg:text-6xl leading-[120px] font-bold text-white hidden md:block">
             Your Ultimate Home Cleaning Partner !
           </h1>
 
-          <h1 className="mb-5 text-5xl font-bold text-white leading-[3.5rem] lg:hidden w-full">
+          <h1 className="mb-5 text-5xl xsm:text-4xl font-bold text-white leading-[3.5rem] md:hidden w-full">
             Your Ultimate Home Cleaning Partner !
           </h1>
 
@@ -24,14 +24,14 @@ const About = () => {
           </p>
           <HashLink to="/#form" smooth>
             <button
-              className={`px-6 py-3 mt-5 uppercase  bg-primary-c hover:bg-primary-c/80 transition-all text-white rounded-md font-semibold`}
+              className={`px-6 py-3 xsm:px-3 mt-5 uppercase  bg-primary-c hover:bg-primary-c/80 transition-all text-white rounded-md font-semibold`}
             >
               Get In Touch
             </button>
           </HashLink>
 
           <div className="mt-14">
-            <h2 className="text-3xl font-bold text-primary-c">
+            <h2 className="text-3xl xsm:text-2xl font-bold text-primary-c">
               Refreshing Homes With Our Top Cleaning Services
             </h2>
             <div className="bg-gray-500/50 text-gray-100 mt-10 py-10">
@@ -133,7 +133,7 @@ const About = () => {
       </div>
 
       <div className="py-24 bg-slate-800 ">
-        <h2 className="text-3xl font-bold text-primary-c text-center mb-5 ">
+        <h2 className="text-3xl xsm:text-2xl font-bold text-primary-c text-center mb-5 ">
           Why Do You Need Our Services?
         </h2>
         <p className=" text-gray-300 text-sm lg:text-lg font-medium font-Roboto leading-loose  px-10 md:w-[70%] mx-auto text-center mb-10">

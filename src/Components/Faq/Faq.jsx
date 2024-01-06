@@ -28,7 +28,7 @@ const Faq = () => {
   return (
     <div id="faq" className="py-20 px-5 min-h-[80vh] md:px-0 lg:px-0">
       <div className="mb-20">
-        <p className="text-center font-bold text-4xl lg:text-5xl">FAQ</p>
+        <p className="text-center font-bold text-4xl lg:text-5xl xsm:text-2xl">FAQ</p>
         <p className="text-center mt-4 text-gray-500 text-sm lg:text-lg">
           Learn More About Our Expert Cleaning Solutions{" "}
         </p>
@@ -42,7 +42,7 @@ const Faq = () => {
               }`}
               onClick={() => handleToggle(index)}
             >
-              <h2 className="text-lg font-semibold">{section.title}</h2>
+              <h2 className="text-lg font-semibold xsm:text-base">{section.title}</h2>
               {openIndex === index ? (
                 <IoMdArrowDropup className="text-lg" />
               ) : (

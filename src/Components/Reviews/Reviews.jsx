@@ -2,7 +2,7 @@ import { TiStarFullOutline } from "react-icons/ti";
 const Reviews = () => {
   return (
     <div className="py-20 px-5 lg:px-0">
-      <p className="text-center font-bold text-4xl lg:text-5xl">
+      <p className="text-center font-bold text-4xl lg:text-5xl xsm:text-2xl">
         What Our Client {"Say’s"}
       </p>
       <p className="text-center text-sm lg:text-lg mt-4 text-gray-500 mb-20 ">
