@@ -503,8 +503,8 @@ const Form = () => {
             <button
               type="submit"
               className={`px-8 py-2 font-semibold transition-all mt-8 xsm:text-sm xsm:px-3 uppercase ${
-                isSubmitDisabled ? `bg-[#82c769]` : "bg-primary-c"
-              } bg-primary-c text-white rounded`}
+                isSubmitDisabled ? `bg-[#577c4a]` : "bg-primary-c"
+              }  text-white rounded`}
               disabled={isSubmitDisabled}
             >
               Calculate Cost
