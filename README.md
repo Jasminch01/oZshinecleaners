@@ -1,3 +1,3 @@
 # oZhineclenaers
-An Australian home cleaning services provider agency website
+An Australian cleaning services provider agency website
 
