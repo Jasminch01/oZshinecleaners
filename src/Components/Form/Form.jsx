@@ -318,7 +318,7 @@ const Form = () => {
               <div className="mt-5 flex justify-center flex-col items-center gap-3">
                 <a
                   className="px-6 py-2 bg-primary-c rounded-md text-sm font-semibold text-white"
-                  href="tel:8882192787"
+                  href="tel:+61452679582"
                 >
                   Call Us +61452679582
                 </a>
