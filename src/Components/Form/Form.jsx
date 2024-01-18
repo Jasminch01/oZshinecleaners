@@ -320,7 +320,7 @@ const Form = () => {
                   className="px-6 py-2 bg-primary-c rounded-md text-sm font-semibold text-white"
                   href="tel:8882192787"
                 >
-                  Call Us 888-219-2787
+                  Call Us +61452679582
                 </a>
 
                 <p className="text-xs text-gray-500">
