@@ -205,7 +205,7 @@ const Form = () => {
     };
     
     axios
-      .post(`https://ozshinecleaners.onrender.com/quoteInfo`, templateParams,{withCredentials: true})
+      .post(`https://o-zshinecleaners-server.vercel.app/quoteInfo`, templateParams,{withCredentials: true})
       .then((res) => {
         console.log(res.data)
         if (res.data.acknowledged) {
