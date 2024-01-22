@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useRef, useState } from "react";
 import toast from "react-hot-toast";
-import emailjs from "@emailjs/browser";
+// import emailjs from "@emailjs/browser";
 import { IoClose } from "react-icons/io5";
 import "../../form.css";
 const Form = () => {
@@ -52,7 +52,6 @@ const Form = () => {
   };
 
   const validatePhone = () => {
-
     const phoneRegex = /^(?:\+?61|0)[2-478](?:[ -]?[0-9]){8}$/;
 
     // (?:\+?61|0): Matches either an optional '+' followed by '61' or just '0'.
@@ -159,8 +158,14 @@ const Form = () => {
       return;
     }
 
-    const gst = (10 / 100) * totalCostGst;
-    const totalCost = totalCostGst - gst;
+    //GST calculation
+    // const gst = (10 / 100) * totalCostGst;
+    // const totalCost = totalCostGst - gst;
+
+    //GST calculation
+    // const gstRate = 0.1;
+    // const excludedGst = totalCostGst / (1 + gstRate);
+    // const totalWithoutGst = excludedGst.toFixed(2);
 
     const cost = {
       ...quoteInfo,
@@ -170,16 +175,17 @@ const Form = () => {
       laundryAreaPrice,
       kitchenAreaPrice,
       totalCostGst,
-      totalCost,
+      // totalCost,
+      // totalWithoutGst,
     };
 
-    setFormDetails({ quoteInfo, totalCost, totalCostGst });
+    setFormDetails({ quoteInfo, totalCostGst });
 
     //send email tamplate params
     const templateParams = {
-      to_email: [cost.email, "ozshinecleaners@gmail.com"],
+      to_email: [cost.email, "admin@ozshinecleaners.com.au"],
       form_name: "ozshinecleaners",
-      form_email: "ozshinecleaners.com.au",
+      form_email: "admin@ozshinecleaners.com.au",
       to_name: cost.name,
       bedroom: cost.bedroom,
       bathroom: cost.bathroom,
@@ -194,31 +200,16 @@ const Form = () => {
       laundryAreaPrice,
       kitchenAreaPrice,
       totalCostGst,
-      totalCost,
+      // totalCost,
+      // totalWithoutGst,
     };
-
+    
     axios
       .post(`https://shine-home-server.vercel.app/quoteInfo`, templateParams)
       .then((res) => {
         if (res.data.acknowledged) {
           toast.success("Successfully submited request");
-
-          emailjs
-            .send(
-              import.meta.env.VITE_SERVICE_ID,
-              import.meta.env.VITE_TEMPLATE_ID,
-              templateParams,
-              import.meta.env.VITE_PUBLIC_KEY
-            )
-            .then(
-              (result) => {
-                console.log("Email sent successfully:", result);
-                modalRef.current.showModal();
-              },
-              (error) => {
-                console.error("Error sending email:", error.text);
-              }
-            );
+          modalRef.current.showModal();
         }
       });
     form.reset();
@@ -233,7 +224,7 @@ const Form = () => {
       <div className="p-10 bg-white rounded-lg mb-20 -mt-20 z-20 shadow-lg max-w-4xl mx-auto">
         <dialog
           ref={modalRef}
-          className="rounded-lg modal w-[40rem] mx-auto my-auto h-[33rem]  bg-secendary-c border-2 border-sky-200 "
+          className="rounded-lg modal md:w-[40rem] w-[20rem] xsm:w-[18rem] mx-auto my-auto h-[33rem]  bg-secendary-c border-2 border-sky-200 "
         >
           <IoClose
             onClick={handleModalClose}
@@ -267,7 +258,7 @@ const Form = () => {
                     <td className="border-t-2 border-gray-200 px-4 py-3">
                       {formDeatails?.quoteInfo?.bedroom || 0}
                     </td>
-                    <td className="border-t-2 border-gray-200 px-4 py-3"></td>
+                    <td className="border-t-2 border-gray-200 px-4 py-3 hidden "></td>
                   </tr>
                   <tr>
                     <td className="border-t-2 border-gray-200 px-4 py-3">
@@ -276,7 +267,7 @@ const Form = () => {
                     <td className="border-t-2 border-gray-200 px-4 py-3">
                       {formDeatails?.quoteInfo?.bathroom || 0}
                     </td>
-                    <td className="border-t-2 border-gray-200 px-4 py-3"></td>
+                    <td className="border-t-2 border-gray-200 px-4 py-3 hidden "></td>
                   </tr>
                   <tr>
                     <td className="border-t-2 border-gray-200 px-4 py-3">
@@ -285,7 +276,7 @@ const Form = () => {
                     <td className="border-t-2 border-gray-200 px-4 py-3">
                       {formDeatails?.quoteInfo?.livingArea || 0}
                     </td>
-                    <td className="border-t-2 border-gray-200 px-4 py-3"></td>
+                    <td className="border-t-2 border-gray-200 px-4 py-2 hidden "></td>
                   </tr>
                   <tr>
                     <td className="border-t-2 border-gray-200 px-4 py-3">
@@ -294,22 +285,26 @@ const Form = () => {
                     <td className="border-t-2 border-gray-200 px-4 py-3">
                       {formDeatails?.quoteInfo?.kitchenArea || 0}
                     </td>
-                    <td className="border-t-2 border-gray-200 px-4 py-3"></td>
+                    <td className="border-t-2 border-gray-200 px-4 py-3 hidden "></td>
                   </tr>
                   <tr>
                     <td className="border-t-2 border-gray-200 px-4 py-3">
                       Laundry Area
                     </td>
-                    <td className="border-t-2 border-gray-200 px-4 py-3">
+                    <td className="border-t-2 border-gray-200 px-4 py-3 mb-5">
                       {formDeatails?.quoteInfo?.laundryArea || 0}
                     </td>
-                    <td className="border-t-2 border-gray-200 px-4 py-3"></td>
+                    <td className="border-t-2 border-gray-200 px-4 py-3 hidden "></td>
                   </tr>
                   <tr>
-                    <td className="border-t-2 border-gray-200 px-4 py-3"></td>
-                    <td className="border-t-2 border-gray-200 px-4 py-3"></td>
-                    <td className="border-t-2 border-gray-200 px-4 py-3 text-sm font-semibold text-gray-700">
-                      Total Price: {formDeatails.totalCost} AUD <br />
+                    <td className="border-t-2 border-gray-200 px-4 py-3 hidden "></td>
+                    <td className="border-t-2 border-gray-200 px-4 py-3 hidden "></td>
+                    <td className="border-t-2 border-gray-200 px-4 py-3 mt-[-1px]"></td>
+                    <td className="border-t-2 border-gray-200 px-4 py-3 mt-[-1px] hidden md:block text-sm font-semibold text-gray-700">
+                      {/* Total Price: {formDeatails.totalWithoutGst} AUD <br /> */}
+                      Including GST: {formDeatails.totalCostGst} AUD
+                    </td>
+                    <td className="border-t-2 border-gray-200 px-4 py-3 font-bold mt-[-1px] md:hidden block">
                       Including GST: {formDeatails.totalCostGst} AUD
                     </td>
                   </tr>
@@ -317,13 +312,13 @@ const Form = () => {
               </table>
               <div className="mt-5 flex justify-center flex-col items-center gap-3">
                 <a
-                  className="px-6 py-2 bg-primary-c rounded-md text-sm font-semibold text-white"
+                  className="md:px-6 px-2 py-2 bg-primary-c rounded-md text-sm font-semibold text-white"
                   href="tel:+61452679582"
                 >
                   Call Us +61452679582
                 </a>
 
-                <p className="text-xs text-gray-500">
+                <p className="text-xs text-gray-500 text-center px-2 md:px-0">
                   Feel free to reach out to us to confirm your booking – we're
                   just a call away!
                 </p>
@@ -502,7 +497,7 @@ const Form = () => {
           <div className="text-center">
             <button
               type="submit"
-              className={`px-8 py-2 font-semibold transition-all mt-8 xsm:text-sm xsm:px-3 uppercase ${
+              className={`md:px-8 md:py-2 px-4 py-2 text-sm md:text-lg font-semibold transition-all mt-8 xsm:text-sm xsm:px-3 uppercase ${
                 isSubmitDisabled ? `bg-[#577c4a]` : "bg-primary-c"
               }  text-white rounded`}
               disabled={isSubmitDisabled}

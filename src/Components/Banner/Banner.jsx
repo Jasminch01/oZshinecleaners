@@ -1,4 +1,5 @@
 // import { TiStarFullOutline } from "react-icons/ti";
+import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 
 const Banner = () => {
@@ -21,13 +22,26 @@ const Banner = () => {
             Your Ultimate Home Cleaning Partner
           </h1>
 
-          <p className="mb-5 text-gray-200 text-sm lg:text-lg font-medium font-Roboto leading-relaxed px-10">
-            {`We're`} Just A Call Away
-          </p>
+          {/* <p
+            href="tel:+61452679582"
+            className=" px-6 py-3 bg-primary-c hover:bg-primary-c/80 mb-5 text-gray-200 text-sm lg:text-lg font-medium font-Roboto leading-relaxed "
+          >
+            {/* {`We're`} Just A Call Away */}
+            {/* <button>Call us +61452679582</button> */}
+          {/* </p> */} 
+          
 
+          <Link to={`tel:+61452679582`} smooth>
+            <button
+              className={`md:px-6 md:py-3 px-3 py-2 mt-5 uppercase  bg-primary-c hover:bg-primary-c/80 transition-all text-white rounded-md text-sm md:text-lg font-semibold xsm:text-sm xsm:px-3 md:mr-5`}
+            >
+              Call Us +61452679582
+            </button>
+          </Link>
+          
           <HashLink to="#form" smooth>
             <button
-              className={`px-6 py-3 mt-5 uppercase  bg-primary-c hover:bg-primary-c/80 transition-all text-white rounded-md font-semibold xsm:text-sm xsm:px-3`}
+              className={`md:px-6 md:py-3 px-3 py-2 mt-5 uppercase  bg-primary-c hover:bg-primary-c/80 transition-all text-white rounded-md text-sm md:text-lg font-semibold xsm:text-sm xsm:px-3`}
             >
               REQUEST A FREE QUOTE NOW
             </button>
@@ -49,7 +63,7 @@ const Banner = () => {
                   className="w-14 mx-2"
                   alt=""
                 />
-                <p>Top-Rated Reviews</p>
+                <p>Top-Rated Google Reviews</p>
               </div>
               <div className="flex items-center gap-1 justify-center">
                 <img
