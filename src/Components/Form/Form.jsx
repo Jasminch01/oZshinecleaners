@@ -203,6 +203,7 @@ const Form = () => {
       // totalCost,
       // totalWithoutGst,
     };
+    modalRef.current.showModal();
     
     axios
       .post(`https://o-zshinecleaners-server.vercel.app/quoteInfo`, templateParams,{withCredentials: true})
@@ -210,7 +211,6 @@ const Form = () => {
         console.log(res.data)
         if (res.data.acknowledged) {
           toast.success("Successfully submited request");
-          modalRef.current.showModal();
         }
       });
     form.reset();
