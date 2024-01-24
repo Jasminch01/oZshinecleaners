@@ -14,9 +14,8 @@ const Home = () => {
       <div className="bg-secendary-c">
         <div >
         <AfterServices></AfterServices>
-          <Services></Services>
           <Form></Form>
-         
+          <Services></Services>
           <BookingStep/>
         </div>
       </div>

@@ -3,7 +3,7 @@ const Services = () => {
 
 
   return (
-    <div className=" min-h-[100vh] flex justify-center items-center flex-col px-5 lg:px-0 max-w-6xl mx-auto" id="services">
+    <div className="py-20 flex justify-center items-center flex-col px-5 lg:px-0 max-w-6xl mx-auto" id="services">
       <p className="text-center font-bold text-4xl lg:text-5xl xsm:text-2xl">
       Consistent Excellence in Melbourne Cleaning Services
 

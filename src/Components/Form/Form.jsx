@@ -229,7 +229,7 @@ const Form = () => {
   };
 
   return (
-    <div id="form" className="relative z-20 mb-20 px-5 lg:px-0">
+    <div id="form" className="relative z-20 my-10 px-5 lg:px-0">
       <div className="p-10 bg-white rounded-lg mb-20 -mt-20 z-20 shadow-lg max-w-4xl mx-auto">
         <dialog
           ref={modalRef}
