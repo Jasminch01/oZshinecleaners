@@ -94,7 +94,9 @@ const Navbar = () => {
             "flex items-center  fixed top-0 md:max-w-6xl mx-auto w-full"
           }
         >
-          <div className="navbar-start p-5 flex items-center">
+          <div className="navbar-start  lg:pt-5 lg:pb-5 lg:pe-5 mmd:p-5 msm:p-5 flex items-center">
+            {/* menu icon form small devices */}
+
             {/* <div className="dropdown">
               <label tabIndex={0} className="btn btn-ghost lg:hidden">
                 <HiMenu

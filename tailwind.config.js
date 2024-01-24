@@ -4,10 +4,14 @@ export default {
   theme: {
     screens : {
       'xsm' : {max : '360px'},
-      // => @media (max-width: 320px) { ... }
+      // => @media (max-width: 360px) { ... }
+      'msm': {max : '640px'},
+      // => @media (min-width: 640px) { ... }
       'sm': '640px',
       // => @media (min-width: 640px) { ... }
 
+      'mmd': {max : '768px'},
+      
       'md': '768px',
       // => @media (min-width: 768px) { ... }
 
