@@ -78,7 +78,7 @@ const Form = () => {
   const modalRef = useRef();
 
   //form submited
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     const form = e.target;
@@ -183,9 +183,10 @@ const Form = () => {
 
     //send email tamplate params
     const templateParams = {
-      to_email: [cost.email, "admin@ozshinecleaners.com.au"],
+      serviceRequried: quoteInfo.serviceRequried,
+      to_email: [cost.email, "ozshinecleaners@ozshinecleaners.com.au"],
       form_name: "ozshinecleaners",
-      form_email: "admin@ozshinecleaners.com.au",
+      form_email: "ozshinecleaners@ozshinecleaners.com.au",
       to_name: cost.name,
       bedroom: cost.bedroom,
       bathroom: cost.bathroom,
@@ -193,7 +194,7 @@ const Form = () => {
       laundryArea: cost.laundryArea,
       kitchenArea: cost.kitchenArea,
       phone: quoteInfo.phone,
-      subject: "Your Quote Information",
+      subject: `Quote for "${quoteInfo.serviceRequried}" - oZshinecleaners`,
       bedRoomPrice,
       bathRoomPrice,
       livingAreaPrice,
@@ -203,17 +204,24 @@ const Form = () => {
       // totalCost,
       // totalWithoutGst,
     };
+
     modalRef.current.showModal();
-    
-    axios
-      .post(`https://o-zshinecleaners-server.vercel.app/quoteInfo`, templateParams,{withCredentials: true})
-      .then((res) => {
-        console.log(res.data)
-        if (res.data.acknowledged) {
-          toast.success("Successfully submited request");
-        }
-      });
-    form.reset();
+    try {
+      const response = await axios.post(
+        "https://o-zshinecleaners-server.vercel.app/quoteInfo",
+        templateParams,
+        { withCredentials: true }
+      );
+
+      if (response.data.acknowledged) {
+        toast.success("Successfully submitted request");
+      }
+    } catch (error) {
+      // Handle errors here
+      console.error("Error submitting request:", error);
+    } finally {
+      form.reset();
+    }
   };
 
   const handleModalClose = () => {

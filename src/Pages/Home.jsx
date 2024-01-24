@@ -13,10 +13,10 @@ const Home = () => {
       <Banner></Banner>
       <div className="bg-secendary-c">
         <div >
-          <Form></Form>
+        <AfterServices></AfterServices>
           <Services></Services>
+          <Form></Form>
          
-          <AfterServices></AfterServices>
           <BookingStep/>
         </div>
       </div>
