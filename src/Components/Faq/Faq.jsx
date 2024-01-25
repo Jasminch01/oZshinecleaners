@@ -17,7 +17,7 @@ const Faq = () => {
     },
     {
       title: "What sets OzShine Cleaners Melbourne apart as a leading Melbourne cleaning company?      ",
-      content: `Radiance Cleaning stands out with reliable professionals, consistent excellence, excellent reviews, and a bond back guarantee—your trusted choice in Melbourne.`,
+      content: `OzShine Cleaners stands out with reliable professionals, consistent excellence, excellent reviews, and a bond back guarantee—your trusted choice in Melbourne.`,
     },
   ];
 
