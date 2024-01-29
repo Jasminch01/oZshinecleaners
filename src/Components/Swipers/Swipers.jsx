@@ -12,10 +12,6 @@ import { Pagination, Navigation, FreeMode } from "swiper/modules";
 const Swipers = () => {
   const images = [
     {
-      before: "https://i.ibb.co/DRSwVMK/before-1.jpg",
-      after: "https://i.ibb.co/YZN9HD6/after-5.jpg",
-    },
-    {
       before: " https://i.ibb.co/x3m4gdH/before-2.jpg",
       after: "https://i.ibb.co/R4HYnWL/after-8.jpg",
     },
@@ -33,13 +29,20 @@ const Swipers = () => {
         "https://i.ibb.co/cFGR0DM/398342061-270756539298381-2602559160872464969-n.jpg",
     },
     {
-      before: "https://i.ibb.co/NK11sKJ/before-8.jpg",
-      after:
-        "https://i.ibb.co/VSJHWKP/398491164-304463795811214-5757020603072236832-n.jpg",
-    },
-    {
       before: "https://i.ibb.co/WG4Wtb9/before-10jpg.jpg",
       after: "https://i.ibb.co/HpTZRXg/after-1.jpg",
+    },
+    {
+      before: "https://i.ibb.co/4p0TBgH/before12.jpg",
+      after: "https://i.ibb.co/kDNWdkY/after12.jpg",
+    },
+    {
+      before: "https://i.ibb.co/mS0X4T8/before13.jpg",
+      after: "https://i.ibb.co/f43h2Fq/after13.jpg",
+    },
+    {
+      before: "https://i.ibb.co/DRSwVMK/before-1.jpg",
+      after: "https://i.ibb.co/YZN9HD6/after-5.jpg",
     },
   ];
   return (
