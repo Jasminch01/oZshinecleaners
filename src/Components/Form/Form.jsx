@@ -486,7 +486,7 @@ const Form = () => {
             </div>
             <div>
               <label className="label">
-                <span className="label-text font-bold ">Laudry area</span>
+                <span className="label-text font-bold ">Laudry Area</span>
               </label>
               <select
                 name="laundryArea"
