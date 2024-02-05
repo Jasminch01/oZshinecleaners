@@ -88,6 +88,11 @@ const Form = () => {
     const livingArea = form.livingArea.value;
     const laundryArea = form.laundryArea.value;
     const kitchenArea = form.KitchenArea.value;
+    const steam = form.steam.value;
+    const wetWipe = form.wetWipe.value;
+    const spotWalls = form.spotWalls.value;
+    const balcony = form.balcony.value;
+    const garage = form.garage.value;
     const quoteInfo = {
       name,
       email,
@@ -98,6 +103,11 @@ const Form = () => {
       livingArea,
       laundryArea,
       kitchenArea,
+      steam,
+      wetWipe,
+      spotWalls,
+      balcony,
+      garage,
     };
 
     const perHour = 60;
@@ -106,6 +116,15 @@ const Form = () => {
     const livingAreaTimeHour = 1;
     const laundryAreaTimeHour = 0.2;
     const kitchenAreaTimeHour = 0.8;
+
+    //
+    const eachSteam = 40;
+    const eachWipe = 15;
+    const eachBalcony = 40;
+    const eachGarage = 30;
+
+
+
 
     let kitchenAreaPrice;
     if (parseFloat(kitchenArea) > 0) {
@@ -145,13 +164,53 @@ const Form = () => {
     } else {
       bathRoomPrice = parseFloat(bathroom);
     }
+    
+    let steamPrice;
+    if (parseFloat(steam) > 0) {
+      steamPrice = parseFloat(steam * eachSteam )
+    }else{
+      steamPrice = parseFloat(steam)
+    }
+
+    let wetWipePrice;
+    if (parseFloat(wetWipe) > 0) {
+      wetWipePrice = parseFloat(wetWipe * eachWipe )
+    }else{
+      wetWipePrice = parseFloat(wetWipe)
+    }
+    let spotWallsPrice;
+    if (parseFloat(wetWipe) > 0) {
+      spotWallsPrice = parseFloat(spotWalls * perHour )
+    }else{
+      spotWallsPrice = parseFloat(spotWalls)
+    }
+
+    let balconyPrice;
+    if (parseFloat(balcony) > 0) {
+      balconyPrice = parseFloat(balcony * eachBalcony)
+    }else{
+      balconyPrice = parseFloat(balcony)
+    }
+
+    let garagePrice;
+    if (parseFloat(garage) > 0) {
+      garagePrice = parseFloat(garage * eachGarage)
+    }else{
+      garagePrice = parseFloat(garage)
+    }
 
     let totalCostGst =
       kitchenAreaPrice +
       laundryAreaPrice +
       livingAreaPrice +
       bedRoomPrice +
-      bathRoomPrice;
+      bathRoomPrice + 
+      steamPrice + 
+      wetWipePrice +
+      spotWallsPrice + 
+      balconyPrice + 
+      garagePrice
+      ;
 
     if (totalCostGst === 0) {
       toast.error("You must select atleast one service.");
@@ -172,9 +231,15 @@ const Form = () => {
       bedRoomPrice,
       bathRoomPrice,
       livingAreaPrice,
-      laundryAreaPrice,
       kitchenAreaPrice,
+      laundryAreaPrice,
+      steamPrice,
+      wetWipePrice,
+      spotWallsPrice,
+      balconyPrice,
+      garagePrice,
       totalCostGst,
+
       // totalCost,
       // totalWithoutGst,
     };
@@ -191,8 +256,14 @@ const Form = () => {
       bedroom: cost.bedroom,
       bathroom: cost.bathroom,
       livingArea: cost.livingArea,
-      laundryArea: cost.laundryArea,
       kitchenArea: cost.kitchenArea,
+      laundryArea: cost.laundryArea,
+      steam : cost.steam,
+      wetWipe : cost.wetWipe,
+      spotWalls : cost.spotWalls,
+      balcony : cost.balcony,
+      garage : cost.garage,
+
       phone: quoteInfo.phone,
       subject: `Quote for "${quoteInfo.serviceRequried}" - oZshinecleaners`,
       bedRoomPrice,
@@ -200,6 +271,11 @@ const Form = () => {
       livingAreaPrice,
       laundryAreaPrice,
       kitchenAreaPrice,
+      steamPrice,
+      wetWipePrice,
+      spotWallsPrice,
+      balconyPrice,
+      garagePrice,
       totalCostGst,
       // totalCost,
       // totalWithoutGst,
@@ -233,7 +309,7 @@ const Form = () => {
       <div className="p-10 bg-white rounded-lg mb-20 -mt-20 z-20 shadow-lg max-w-4xl mx-auto">
         <dialog
           ref={modalRef}
-          className="rounded-lg modal md:w-[40rem] w-[20rem] xsm:w-[18rem] mx-auto my-auto h-[33rem]  bg-secendary-c border-2 border-sky-200 "
+          className="rounded-lg modal md:w-[40rem] w-[20rem] xsm:w-[18rem] mx-auto my-auto h-[40rem]  bg-secendary-c border-2 border-sky-200 overflow-y-scroll"
         >
           <IoClose
             onClick={handleModalClose}
@@ -302,6 +378,51 @@ const Form = () => {
                     </td>
                     <td className="border-t-2 border-gray-200 px-4 py-3 mb-5">
                       {formDeatails?.quoteInfo?.laundryArea || 0}
+                    </td>
+                    <td className="border-t-2 border-gray-200 px-4 py-3 hidden "></td>
+                  </tr>
+                  <tr>
+                    <td className="border-t-2 border-gray-200 px-4 py-3">
+                      Steam
+                    </td>
+                    <td className="border-t-2 border-gray-200 px-4 py-3 mb-5">
+                      {formDeatails?.quoteInfo?.steam || 0}
+                    </td>
+                    <td className="border-t-2 border-gray-200 px-4 py-3 hidden "></td>
+                  </tr>
+                  <tr>
+                    <td className="border-t-2 border-gray-200 px-4 py-3">
+                      Wet Wipe Blinds
+                    </td>
+                    <td className="border-t-2 border-gray-200 px-4 py-3 mb-5">
+                      {formDeatails?.quoteInfo?.wetWipe || 0}
+                    </td>
+                    <td className="border-t-2 border-gray-200 px-4 py-3 hidden "></td>
+                  </tr>
+                  <tr>
+                    <td className="border-t-2 border-gray-200 px-4 py-3">
+                      Spot Walls
+                    </td>
+                    <td className="border-t-2 border-gray-200 px-4 py-3 mb-5">
+                      {formDeatails?.quoteInfo?.spotWalls || 0}
+                    </td>
+                    <td className="border-t-2 border-gray-200 px-4 py-3 hidden "></td>
+                  </tr>
+                  <tr>
+                    <td className="border-t-2 border-gray-200 px-4 py-3">
+                      Balcony
+                    </td>
+                    <td className="border-t-2 border-gray-200 px-4 py-3 mb-5">
+                      {formDeatails?.quoteInfo?.balcony || 0}
+                    </td>
+                    <td className="border-t-2 border-gray-200 px-4 py-3 hidden "></td>
+                  </tr>
+                  <tr>
+                    <td className="border-t-2 border-gray-200 px-4 py-3">
+                     {` Garage (sweep and tidy) `}
+                    </td>
+                    <td className="border-t-2 border-gray-200 px-4 py-3 mb-5">
+                      {formDeatails?.quoteInfo?.garage || 0}
                     </td>
                     <td className="border-t-2 border-gray-200 px-4 py-3 hidden "></td>
                   </tr>
@@ -490,6 +611,91 @@ const Form = () => {
               </label>
               <select
                 name="laundryArea"
+                id=""
+                placeholder="select"
+                className={getInputClasses(!!phoneError)}
+              >
+                {roomes.map((room) => (
+                  <option className="p-5" key={room.num}>
+                    {room.num}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div>
+              <label className="label">
+                <span className="label-text font-bold ">Steam</span>
+              </label>
+              <select
+                name="steam"
+                id=""
+                placeholder="select"
+                className={getInputClasses(!!phoneError)}
+              >
+                {roomes.map((room) => (
+                  <option className="p-5" key={room.num}>
+                    {room.num}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div>
+              <label className="label">
+                <span className="label-text font-bold ">Wet Wipe Blinds</span>
+              </label>
+              <select
+                name="wetWipe"
+                id=""
+                placeholder="select"
+                className={getInputClasses(!!phoneError)}
+              >
+                {roomes.map((room) => (
+                  <option className="p-5" key={room.num}>
+                    {room.num}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div>
+              <label className="label">
+                <span className="label-text font-bold ">{`Spot clean (walls) `}</span>
+              </label>
+              <select
+                name="spotWalls"
+                id=""
+                placeholder="select"
+                className={getInputClasses(!!phoneError)}
+              >
+                {roomes.map((room) => (
+                  <option className="p-5" key={room.num}>
+                    {room.num}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div>
+              <label className="label">
+                <span className="label-text font-bold ">{`Balcony (including glasses) `}</span>
+              </label>
+              <select
+                name="balcony"
+                id=""
+                placeholder="select"
+                className={getInputClasses(!!phoneError)}
+              >
+                {roomes.map((room) => (
+                  <option className="p-5" key={room.num}>
+                    {room.num}
+                  </option>
+                ))}
+              </select>
+            </div>
+            <div>
+              <label className="label">
+                <span className="label-text font-bold ">{`Garage (sweep and tidy)`}</span>
+              </label>
+              <select
+                name="garage"
                 id=""
                 placeholder="select"
                 className={getInputClasses(!!phoneError)}

@@ -15,7 +15,23 @@ const Router = createBrowserRouter([
             {
                 path: '/about',
                 element : <About/>
-            }
+            },
+            // {
+            //     path: '/deep-cleaning',
+            //     element : <About/>
+            // },
+            // {
+            //     path: '/deep-cleaning',
+            //     element : <About/>
+            // },
+            // {
+            //     path: '/endOfLease-cleaning',
+            //     element : <About/>
+            // },
+            // {
+            //     path: '/carper-cleaning',
+            //     element : <About/>
+            // }
         ]
     }
 ])
