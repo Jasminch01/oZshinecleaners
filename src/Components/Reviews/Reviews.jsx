@@ -1,5 +1,5 @@
 import ReviewSwiper from "../Swipers/ReviewSwiper";
-const Reviews = () => {
+const Reviews = ({textColor}) => {
   const reviews = [
     {
       id: 1,
@@ -63,12 +63,12 @@ const Reviews = () => {
       <p className="text-center font-bold text-4xl lg:text-5xl xsm:text-2xl">
         What Our Client {"Say’s"}
       </p>
-      <p className="text-center text-sm lg:text-lg mt-4 text-gray-500 mb-20 ">
+      <p className={`text-center text-sm lg:text-lg mt-4 ${textColor} mb-20 `}>
         {/* This is what clients have been saying after using the great service we
         do for clients */}
         This is what our customers have been expressing through Google reviews after experiencing the exceptional service we provide.
       </p>
-      <ReviewSwiper reviews={reviews}></ReviewSwiper>
+      <ReviewSwiper reviews={reviews} textColor={textColor}></ReviewSwiper>
     </div>
   );
 };

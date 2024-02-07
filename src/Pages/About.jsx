@@ -1,6 +1,7 @@
 import { HashLink } from "react-router-hash-link";
 import Swipers from "../Components/Swipers/Swipers";
 const About = () => {
+  window.scrollTo(0, 0);
   return (
     <div>
       <div className="bg-slate-800 min-h-screen py-16">

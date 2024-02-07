@@ -9,6 +9,7 @@ import {
 
 import { Pagination, Navigation, FreeMode } from "swiper/modules";
 import SwiperBtn from "./swiperBtn";
+import { Link } from "react-router-dom";
 
 const Swipers = () => {
   const images = [
@@ -95,6 +96,13 @@ const Swipers = () => {
           <SwiperBtn></SwiperBtn>
           <div className="h-10"></div>
         </Swiper>
+        <div className="text-center">
+          <Link to={`/gallery`}>
+            <button className="text-center py-2 px-3 bg-primary-c rounded-full text-white">
+              Explore Sparkle Gallery
+            </button>
+          </Link>
+        </div>
       </div>
     </div>
   );

@@ -1,4 +1,4 @@
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const Services = () => {
   return (
@@ -14,7 +14,7 @@ const Services = () => {
         in Melbourne
       </p>
       <div className="grid md:grid-cols-3 grid-cols-1 gap-5 my-20 ">
-        {/* <Link to={`/deep-cleaning`}> */}
+        <Link to={`/deep-cleaning`}>
         
         <div
           className={`transform transition-transform  hover:text-primary-c group cursor-pointer `}
@@ -32,9 +32,9 @@ const Services = () => {
             </p>
           </div>
         </div>
-        {/* </Link> */}
+        </Link>
         
-        {/* <Link to={`/endOfLease-cleaning`}> */}
+        <Link to={`/endOfLease-cleaning`}>
         <div
           className={`transform transition-transform  hover:text-primary-c group cursor-pointer `}
         >
@@ -51,8 +51,8 @@ const Services = () => {
             </p>
           </div>
         </div>
-        {/* </Link> */}
-        {/* <Link to={`/carpet-cleaning`}> */}
+        </Link>
+        <Link to={`/carpet-cleaning`}>
         <div
           className={`transform transition-transform  hover:text-primary-c group cursor-pointer `}
         >
@@ -69,7 +69,7 @@ const Services = () => {
             </p>
           </div>
         </div>
-        {/* </Link> */}
+        </Link>
       </div>
     </div>
   );

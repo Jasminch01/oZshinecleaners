@@ -67,6 +67,16 @@ const Navbar = () => {
       <li>
         <HashLink
           smooth
+          to="/gallery"
+          className={`hover:border-b-2 hidden md:inline
+          }`}
+        >
+          Gallery
+        </HashLink>
+      </li>
+      <li>
+        <HashLink
+          smooth
           to="/#faq"
           className={`hover:border-b-2 hidden md:inline ${
             location.pathname.includes("#faq")
@@ -84,7 +94,7 @@ const Navbar = () => {
     <div
       className={
         scrolling
-          ? "flex items-center py-7 shadow-xl xsm:py-10 md:py-10 z-30 bg-secendary-c fixed top-0  w-full mx-auto"
+          ? "flex items-center py-10 shadow-xl xsm:py-10 md:py-10 z-30 bg-secendary-c fixed top-0  w-full mx-auto"
           : `fixed top-0 w-full mx-auto flex items-center py-10 z-20 transition duration-300 ease-in-out `
       }
     >

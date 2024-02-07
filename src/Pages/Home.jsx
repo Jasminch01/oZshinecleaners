@@ -10,7 +10,7 @@ import Services from "../Components/Services/Services";
 const Home = () => {
   return (
     <div id="home">
-      <Banner></Banner>
+      <Banner title={`Your Unlimited Home cleaning partner`} size={`md:text-6xl`}></Banner>
       <div className="bg-secendary-c">
         <div >
         <AfterServices></AfterServices>
@@ -26,7 +26,7 @@ const Home = () => {
       
       <div className="bg-secendary-c">
         <div className="max-w-6xl mx-auto">
-          <Faq></Faq>
+          <Faq textColor={`text-gray-500`}></Faq>
         </div>
       </div>
      

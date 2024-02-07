@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { IoMdArrowDropdown, IoMdArrowDropup } from "react-icons/io";
 
-const Faq = () => {
+const Faq = ({textColor}) => {
   const [openIndex, setOpenIndex] = useState(0);
 
   const accordionData = [
@@ -29,7 +29,7 @@ const Faq = () => {
     <div id="faq" className="py-20 px-5 min-h-[80vh] md:px-0 lg:px-0">
       <div className="mb-20">
         <p className="text-center font-bold text-4xl lg:text-5xl xsm:text-2xl">FAQ</p>
-        <p className="text-center mt-4 text-gray-500 text-sm lg:text-lg">
+        <p className={`text-center mt-4 text-sm lg:text-lg`}>
           Learn More About Our Expert Cleaning Solutions{" "}
         </p>
       </div>
@@ -37,7 +37,7 @@ const Faq = () => {
         {accordionData.map((section, index) => (
           <div key={index} className="mb-4 space-y-3 ">
             <div
-              className={`flex justify-between bg-white rounded-xl p-4 cursor-pointer w-full transition-transform duration-300 ease-in-out${
+              className={`flex justify-between ${textColor} bg-white rounded-xl p-4 cursor-pointer w-full transition-transform duration-300 ease-in-out${
                 openIndex === index ? "bg-gray-200" : ""
               }`}
               onClick={() => handleToggle(index)}
@@ -50,7 +50,7 @@ const Faq = () => {
               )}
             </div>
             {openIndex === index && (
-              <div className="p-4  w-full bg-white rounded-xl transition-transform duration-500 ease-in-out">
+              <div className={`p-4  w-full bg-white rounded-xl transition-transform duration-500 ease-in-out ${textColor}`}>
                 <p>{section.content}</p>
               </div>
             )}

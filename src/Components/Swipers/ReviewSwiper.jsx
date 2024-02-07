@@ -8,7 +8,7 @@ import PropTypes from "prop-types";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 
-const ReviewSwiper = ({ reviews }) => {
+const ReviewSwiper = ({ reviews, textColor }) => {
   const [showFullContentMap, setShowFullContentMap] = useState({});
 
   const handleToggleContent = (reviewId) => {
@@ -84,7 +84,7 @@ const ReviewSwiper = ({ reviews }) => {
                     />
                   </div>
                   <div>
-                    <p className="text-gray-500">
+                    <p className={`${textColor}`}>
                       {showFullContent
                         ? review.review
                         : truncatedReview + "..."}
