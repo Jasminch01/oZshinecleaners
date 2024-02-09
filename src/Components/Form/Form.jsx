@@ -383,7 +383,7 @@ const Form = () => {
                   </tr>
                   <tr>
                     <td className="border-t-2 border-gray-200 px-4 py-3">
-                      Steam
+                      Steam Clean
                     </td>
                     <td className="border-t-2 border-gray-200 px-4 py-3 mb-5">
                       {formDeatails?.quoteInfo?.steam || 0}
@@ -392,7 +392,7 @@ const Form = () => {
                   </tr>
                   <tr>
                     <td className="border-t-2 border-gray-200 px-4 py-3">
-                      Wet Wipe Blinds
+                      Number Of Blinds
                     </td>
                     <td className="border-t-2 border-gray-200 px-4 py-3 mb-5">
                       {formDeatails?.quoteInfo?.wetWipe || 0}
@@ -410,7 +410,7 @@ const Form = () => {
                   </tr>
                   <tr>
                     <td className="border-t-2 border-gray-200 px-4 py-3">
-                      Balcony
+                     {` Balcony (Including Glasses) `}
                     </td>
                     <td className="border-t-2 border-gray-200 px-4 py-3 mb-5">
                       {formDeatails?.quoteInfo?.balcony || 0}
@@ -419,7 +419,7 @@ const Form = () => {
                   </tr>
                   <tr>
                     <td className="border-t-2 border-gray-200 px-4 py-3">
-                     {` Garage (sweep and tidy) `}
+                     {` Garage (Sweep And Tidy) `}
                     </td>
                     <td className="border-t-2 border-gray-200 px-4 py-3 mb-5">
                       {formDeatails?.quoteInfo?.garage || 0}
@@ -641,7 +641,7 @@ const Form = () => {
             </div>
             <div>
               <label className="label">
-                <span className="label-text font-bold ">Wet Wipe Blinds</span>
+                <span className="label-text font-bold ">Number Of Blinds</span>
               </label>
               <select
                 name="wetWipe"
@@ -675,7 +675,7 @@ const Form = () => {
             </div>
             <div>
               <label className="label">
-                <span className="label-text font-bold ">{`Balcony (including glasses) `}</span>
+                <span className="label-text font-bold ">{`Balcony (Including Glasses) `}</span>
               </label>
               <select
                 name="balcony"
@@ -692,7 +692,7 @@ const Form = () => {
             </div>
             <div>
               <label className="label">
-                <span className="label-text font-bold ">{`Garage (sweep and tidy)`}</span>
+                <span className="label-text font-bold ">{`Garage (Sweep And Tidy)`}</span>
               </label>
               <select
                 name="garage"

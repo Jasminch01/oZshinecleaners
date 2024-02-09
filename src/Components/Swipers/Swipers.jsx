@@ -8,7 +8,7 @@ import {
 } from "react-compare-slider";
 
 import { Pagination, Navigation, FreeMode } from "swiper/modules";
-import SwiperBtn from "./swiperBtn";
+import SwiperBtn from "./SwiperBtn";
 import { Link } from "react-router-dom";
 
 const Swipers = () => {
