@@ -6,9 +6,8 @@ import {
   ReactCompareSlider,
   ReactCompareSliderImage,
 } from "react-compare-slider";
-
-import { Pagination, Navigation, FreeMode } from "swiper/modules";
 import SwiperBtn from "./SwiperBtn";
+import { Pagination, Navigation, FreeMode } from "swiper/modules";
 import { Link } from "react-router-dom";
 
 const Swipers = () => {
@@ -93,7 +92,7 @@ const Swipers = () => {
               />
             </SwiperSlide>
           ))}
-          <SwiperBtn></SwiperBtn>
+          <SwiperBtn />
           <div className="h-10"></div>
         </Swiper>
         <div className="text-center">
