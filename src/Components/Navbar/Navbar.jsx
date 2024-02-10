@@ -71,7 +71,7 @@ const Navbar = () => {
           className={`hover:border-b-2 hidden md:inline
           }`}
         >
-          Gallery
+          Work Gallery
         </HashLink>
       </li>
       <li>
