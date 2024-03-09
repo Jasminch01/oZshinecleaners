@@ -103,7 +103,7 @@ const Gallery = () => {
       <div className="mt-10 max-w-6xl mx-auto px-5 md:px-0" id="gallery">
         <div className="columns-1 gap-5 lg:gap-3 sm:columns-2 lg:columns-3 xl:columns-4 [&>img:not(:first-child)]:mt-5 lg:[&>img:not(:first-child)]:mt-8">
           {imgs.map((img, idx) => (
-            <img className="rounded" key={idx} src={img.after}></img>
+            <img className="rounded" key={idx} src={img.after} alt="cleaning-image"></img>
           ))}
         </div>
         <Reviews />

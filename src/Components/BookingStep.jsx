@@ -21,7 +21,7 @@ const BookingStep = () => {
             <img
               className=" w-24 text-center   "
               src="https://cdn-icons-png.flaticon.com/128/3815/3815596.png"
-              alt=""
+              alt="calculate-icon"
             />
             <div className="flex justify-center flex-col">
               <p
@@ -42,7 +42,7 @@ const BookingStep = () => {
             <img
               className=" w-24 text-center   "
               src="https://cdn-icons-png.flaticon.com/128/1000/1000389.png"
-              alt=""
+              alt="booking-icon"
             />
             <div className="flex justify-center flex-col">
               <p
@@ -63,7 +63,7 @@ const BookingStep = () => {
             <img
               className=" w-24 text-center   "
               src="https://cdn-icons-png.flaticon.com/128/2954/2954872.png"
-              alt=""
+              alt="home-cleaning-icon"
             />
             <div className="flex justify-center flex-col">
               <p

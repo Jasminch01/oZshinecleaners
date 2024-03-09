@@ -87,8 +87,8 @@ const Swipers = () => {
             <SwiperSlide key={img}>
               <ReactCompareSlider
                 className="bg-cover object-cover h-[435px] w-full rounded-lg shadow-lg"
-                itemOne={<ReactCompareSliderImage src={img.before} />}
-                itemTwo={<ReactCompareSliderImage src={img.after} />}
+                itemOne={<ReactCompareSliderImage src={img.before} alt="clean-image" />}
+                itemTwo={<ReactCompareSliderImage src={img.after}  alt="clean-image"/>}
               />
             </SwiperSlide>
           ))}

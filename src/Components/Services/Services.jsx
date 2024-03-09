@@ -22,7 +22,7 @@ const Services = () => {
           <img
             className="rounded-lg shadow-lg  transition-all object-cover "
             src="https://i.ibb.co/yNtZdWj/e0d63c7b97a8516fb5693135f3708712.jpg"
-            alt=""
+            alt="deep-cleaning"
           />
           <div className="flex justify-center">
             <p
@@ -41,7 +41,7 @@ const Services = () => {
           <img
             className="rounded-lg shadow-lg  transition-all object-cover "
             src="https://i.ibb.co/V3fbX2r/cf5ed418a3ea38e294e5a538b107ff85.jpg"
-            alt=""
+            alt="end-of-lease-cleaning"
           />
           <div className="flex justify-center">
             <p
@@ -59,7 +59,7 @@ const Services = () => {
           <img
             className="rounded-lg shadow-lg  transition-all object-cover "
             src="https://i.ibb.co/pRSRb74/a03ff70844c50624d360e746938d95b7.jpg"
-            alt=""
+            alt="carpet-cleaning"
           />
           <div className="flex justify-center">
             <p

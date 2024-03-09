@@ -79,7 +79,7 @@ const ReviewSwiper = ({ reviews, textColor }) => {
                   <div>
                     <img
                       src="https://i.ibb.co/S7bmTTJ/307abac1c2751b920c46a4b4fd0910d8.png"
-                      alt=""
+                      alt="reviewers-image"
                       className="w-10 bg-primary-c rounded-full"
                     />
                   </div>

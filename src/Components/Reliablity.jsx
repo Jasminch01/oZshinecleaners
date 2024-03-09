@@ -14,7 +14,7 @@ const Reliablity = () => {
           <div className="">
             <img
               src="https://i.ibb.co/1X9d4ZT/problem-3240831.png"
-              alt=""
+              alt="problem-logo"
               className="w-20 h-20"
             />
           </div>
@@ -37,7 +37,7 @@ const Reliablity = () => {
           <div className="flex md:justify-end">
             <img
               src="https://i.ibb.co/dBwfrFX/trust-3967544.png"
-              alt=""
+              alt="trust-logo"
               className="w-20 h-20"
             />
           </div>
@@ -59,7 +59,7 @@ const Reliablity = () => {
         <div>
           <img
             src="https://i.ibb.co/QJ6qSht/development-4471826.png"
-            alt=""
+            alt="defelopment-image"
             className="w-20 h-20"
           />
 
@@ -78,7 +78,7 @@ const Reliablity = () => {
           <div className="flex md:justify-end">
             <img
               src="https://i.ibb.co/rpVWLNv/conference-9153534.png"
-              alt=""
+              alt="conference-image"
               className="w-20 h-20"
             />
           </div>

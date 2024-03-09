@@ -1,9 +1,32 @@
 import { HashLink } from "react-router-hash-link";
 import Swipers from "../Components/Swipers/Swipers";
+import { Helmet } from "react-helmet";
 const About = () => {
   window.scrollTo(0, 0);
   return (
     <div>
+      <Helmet>
+        <title>About | Best Cleaning services in Melbourne</title>
+        <meta
+          name="description"
+          content="Experience the Pinnacle of Home Cleaning Excellence with OzShine Melbourne | Your Trusted Home Cleaning Services Agency in Malbourne."
+        />
+        <meta
+          name="og:description"
+          content="Experience the Pinnacle of Home Cleaning Excellence with OzShine Melbourne | Your Trusted Home Cleaning Services Agency in Malbourne."
+        />
+        <meta
+          name="keywords"
+          content="Home Cleaning Services Melbourne, clean, cleaning-service, Malbourne, claning-agency, home-clean, near-malbourne, cleaner, carpet cleaning, deep cleaning, steam cleaners, professional carpet cleaning near me, deep cleaning house, deep clean, end of lease cleaning"
+        />
+        <meta property="og:url" content="https://www.ozshinecleaners.com.au" />
+        <link rel="preconnect" href="https://www.ozshinecleaners.com.au" />
+        <meta name="og:site_name" content="OzShine Cleaner Melbourne " />
+        <meta
+          property="og:title"
+          content="OzShine Cleaner Melbourne | Best Cleaning services in Melbourne"
+        />
+      </Helmet>
       <div className="bg-slate-800 min-h-screen py-16">
         <div className="pt-28 text-white text-center  md:w-full">
           <h1 className="mb-5 lg:text-6xl leading-[120px] font-bold text-white hidden md:block">
