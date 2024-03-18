@@ -84,15 +84,15 @@ const Gallery = () => {
   ];
 
   window.scrollTo(0, 0);
-  useEffect(() => {
-    const targetSection = document.getElementById("gallery");
-    if (targetSection) {
-      targetSection.scrollIntoView({
-        block: "start",
-        // behavior: "smooth",
-      });
-    }
-  }, []);
+  // useEffect(() => {
+  //   const targetSection = document.getElementById("gallery");
+  //   if (targetSection) {
+  //     targetSection.scrollIntoView({
+  //       block: "start",
+  //       // behavior: "smooth",
+  //     });
+  //   }
+  // }, []);
 
   return (
     <div className="bg-secendary-c h-full">

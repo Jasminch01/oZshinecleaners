@@ -140,18 +140,18 @@ const DeepCleaning = () => {
     },
   ];
   window.scrollTo(0, 0);
-  useEffect(() => {
-    // Get a reference to the target section
-    const targetSection = document.getElementById('deep-cleaning');
+  // useEffect(() => {
+  //   // Get a reference to the target section
+  //   const targetSection = document.getElementById('deep-cleaning');
 
-    // Scroll to the target section
-    if (targetSection) {
-      targetSection.scrollIntoView({
-        // behavior: 'smooth',
-        block : 'start'
-      });
-    }
-  }, []);
+  //   // Scroll to the target section
+  //   if (targetSection) {
+  //     targetSection.scrollIntoView({
+  //       // behavior: 'smooth',
+  //       block : 'start'
+  //     });
+  //   }
+  // }, []);
 
   return (
     <div>
