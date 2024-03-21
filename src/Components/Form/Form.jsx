@@ -4,10 +4,11 @@ import toast from "react-hot-toast";
 // import emailjs from "@emailjs/browser";
 import { IoClose } from "react-icons/io5";
 import "../../form.css";
+import moment from "moment";
 const Form = () => {
   const [services, setServices] = useState([
     { name: "End of Lease Cleaning", id: 1 },
-    { name: "Deep Cleaning", id: 2 },
+    { name: "Detailed House Cleaning", id: 2 },
     { name: "Carpet Cleaning", id: 3 },
   ]);
   const [roomes, setRooms] = useState([
@@ -123,9 +124,6 @@ const Form = () => {
     const eachBalcony = 40;
     const eachGarage = 30;
 
-
-
-
     let kitchenAreaPrice;
     if (parseFloat(kitchenArea) > 0) {
       kitchenAreaPrice = parseFloat(
@@ -164,39 +162,39 @@ const Form = () => {
     } else {
       bathRoomPrice = parseFloat(bathroom);
     }
-    
+
     let steamPrice;
     if (parseFloat(steam) > 0) {
-      steamPrice = parseFloat(steam * eachSteam )
-    }else{
-      steamPrice = parseFloat(steam)
+      steamPrice = parseFloat(steam * eachSteam);
+    } else {
+      steamPrice = parseFloat(steam);
     }
 
     let wetWipePrice;
     if (parseFloat(wetWipe) > 0) {
-      wetWipePrice = parseFloat(wetWipe * eachWipe )
-    }else{
-      wetWipePrice = parseFloat(wetWipe)
+      wetWipePrice = parseFloat(wetWipe * eachWipe);
+    } else {
+      wetWipePrice = parseFloat(wetWipe);
     }
     let spotWallsPrice;
     if (parseFloat(wetWipe) > 0) {
-      spotWallsPrice = parseFloat(spotWalls * perHour )
-    }else{
-      spotWallsPrice = parseFloat(spotWalls)
+      spotWallsPrice = parseFloat(spotWalls * perHour);
+    } else {
+      spotWallsPrice = parseFloat(spotWalls);
     }
 
     let balconyPrice;
     if (parseFloat(balcony) > 0) {
-      balconyPrice = parseFloat(balcony * eachBalcony)
-    }else{
-      balconyPrice = parseFloat(balcony)
+      balconyPrice = parseFloat(balcony * eachBalcony);
+    } else {
+      balconyPrice = parseFloat(balcony);
     }
 
     let garagePrice;
     if (parseFloat(garage) > 0) {
-      garagePrice = parseFloat(garage * eachGarage)
-    }else{
-      garagePrice = parseFloat(garage)
+      garagePrice = parseFloat(garage * eachGarage);
+    } else {
+      garagePrice = parseFloat(garage);
     }
 
     let totalCostGst =
@@ -204,14 +202,12 @@ const Form = () => {
       laundryAreaPrice +
       livingAreaPrice +
       bedRoomPrice +
-      bathRoomPrice + 
-      steamPrice + 
+      bathRoomPrice +
+      steamPrice +
       wetWipePrice +
-      spotWallsPrice + 
-      balconyPrice + 
-      garagePrice
-      ;
-
+      spotWallsPrice +
+      balconyPrice +
+      garagePrice;
     if (totalCostGst === 0) {
       toast.error("You must select atleast one service.");
       return;
@@ -246,6 +242,8 @@ const Form = () => {
 
     setFormDetails({ quoteInfo, totalCostGst });
 
+    const requestedDate = moment().format("LLLL");
+
     //send email tamplate params
     const templateParams = {
       serviceRequried: quoteInfo.serviceRequried,
@@ -258,13 +256,14 @@ const Form = () => {
       livingArea: cost.livingArea,
       kitchenArea: cost.kitchenArea,
       laundryArea: cost.laundryArea,
-      steam : cost.steam,
-      wetWipe : cost.wetWipe,
-      spotWalls : cost.spotWalls,
-      balcony : cost.balcony,
-      garage : cost.garage,
+      steam: cost.steam,
+      wetWipe: cost.wetWipe,
+      spotWalls: cost.spotWalls,
+      balcony: cost.balcony,
+      garage: cost.garage,
 
       phone: quoteInfo.phone,
+      requestedDate: requestedDate,
       subject: `Quote for "${quoteInfo.serviceRequried}" - oZshinecleaners`,
       bedRoomPrice,
       bathRoomPrice,
@@ -284,7 +283,9 @@ const Form = () => {
     modalRef.current.showModal();
     try {
       const response = await axios.post(
-        "https://o-zshinecleaners-server.vercel.app/quoteInfo",
+        // "https://o-zshinecleaners-server.vercel.app/quoteInfo",
+
+        "http://localhost:5001/quoteInfo",
         templateParams,
         { withCredentials: true }
       );
@@ -410,7 +411,7 @@ const Form = () => {
                   </tr>
                   <tr>
                     <td className="border-t-2 border-gray-200 px-4 py-3">
-                     {` Balcony (Including Glasses) `}
+                      {` Balcony (Including Glasses) `}
                     </td>
                     <td className="border-t-2 border-gray-200 px-4 py-3 mb-5">
                       {formDeatails?.quoteInfo?.balcony || 0}
@@ -419,7 +420,7 @@ const Form = () => {
                   </tr>
                   <tr>
                     <td className="border-t-2 border-gray-200 px-4 py-3">
-                     {` Garage (Sweep And Tidy) `}
+                      {` Garage (Sweep And Tidy) `}
                     </td>
                     <td className="border-t-2 border-gray-200 px-4 py-3 mb-5">
                       {formDeatails?.quoteInfo?.garage || 0}

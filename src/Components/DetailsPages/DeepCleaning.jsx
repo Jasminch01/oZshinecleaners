@@ -155,15 +155,15 @@ const DeepCleaning = () => {
 
   return (
     <div>
-      <Banner title={`Deep Cleaning`} size={`md:text-5xl`}></Banner>
+      <Banner title={`Detailed House Cleaning`} size={`md:text-5xl`}></Banner>
       <div className="bg-slate-800 text-white" id="deep-cleaning">
         <div className="text-center pt-10 px-2 md:px-0">
           <p className="text-3xl md:text-5xl font-bold text-center">
-            Our Deep Cleaning Services Include
+            Our Detailed House Cleaning Services Include
           </p>
           <p className="md:w-1/2 text-center mx-auto mt-2 text-gray-300">
             We understand the importance of a clean and healthy living
-            environment. Our deep cleaning services are designed to provide a
+            environment. Our Detailed house cleaning services are designed to provide a
             thorough and comprehensive cleaning experience, ensuring your home
             is free from dirt, allergens, and germs.
           </p>

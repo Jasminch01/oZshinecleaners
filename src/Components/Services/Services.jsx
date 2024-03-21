@@ -28,7 +28,7 @@ const Services = () => {
             <p
               className={`text-center text-xl font-medium mt-5 underline underline-offset-8 group-hover:underline-offset-[15px] transition-all duration-300 hover:border-primary-c group-hover:text-primary-c: `}
             >
-              Deep Cleaning
+              Detailed House Cleaning
             </p>
           </div>
         </div>
